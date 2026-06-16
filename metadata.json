@@ -1,0 +1,8 @@
+{
+  "name": "Sam \u0026 Charis Wedding WEB v4",
+  "description": "A premium, elegant, and God-centered wedding website with RSVP, story, timeline, venue, and FAQ functionality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
