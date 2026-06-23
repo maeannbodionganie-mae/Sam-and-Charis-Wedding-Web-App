@@ -1,13 +1,22 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Map, Info } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function Venue() {
   const { location } = weddingData;
+  const [copied, setCopied] = useState(false);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText(location.address);
-    alert("Venue address copied to clipboard!");
+    try {
+      navigator.clipboard.writeText(location.address).catch(() => {
+        // Ignore clipboard error in iframes
+      });
+    } catch (e) {
+      // Ignore synchronous iframe errors
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   }
 
   return (
@@ -82,7 +91,7 @@ export default function Venue() {
                   onClick={handleCopyLink}
                   className="font-nav tracking-[0.08em] bg-transparent border border-theme-accent text-theme-accent hover:bg-theme-accent/10 px-6 py-3 rounded-full text-sm font-medium uppercase transition-colors"
                 >
-                  Copy Address
+                  {copied ? "Copied!" : "Copy Address"}
                 </button>
              </div>
           </motion.div>

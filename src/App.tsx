@@ -34,7 +34,6 @@ export default function App() {
       ) : (
         <>
           <Navbar onOpenRSVP={() => setIsRSVPOpen(true)} />
-          <HelmetSEO />
           <Hero onOpenRSVP={() => setIsRSVPOpen(true)} />
           <WelcomeMessage />
           <WeddingDetails />
@@ -52,14 +51,5 @@ export default function App() {
       )}
     </div>
   );
-}
-
-// Simple SEO / Document text helper
-function HelmetSEO() {
-  // Sets the native document title
-  if (typeof document !== 'undefined') {
-      document.title = 'Sam & Charis Wedding | September 25, 2026';
-  }
-  return null;
 }
 

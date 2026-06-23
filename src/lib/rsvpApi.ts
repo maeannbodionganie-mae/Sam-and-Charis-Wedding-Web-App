@@ -30,9 +30,12 @@ export interface SubmitResponse {
 }
 
 const getUrl = () => {
-  const url = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+  const envUrl = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
+  const hardcodedUrl = 'https://script.google.com/macros/s/AKfycbwlqjWIFlzoi49hRsSWtDGRE77LUjF7YkJ-ZzRAQIx5q53SzKPui3U8JYscFKE73jg/exec';
+  const url = envUrl || hardcodedUrl;
+  
   if (!url) {
-    throw new Error('RSVP backend is not configured. Please set VITE_GOOGLE_APPS_SCRIPT_URL.');
+    throw new Error('RSVP backend is not configured.');
   }
   return url;
 };
@@ -43,6 +46,9 @@ const postToAppsScript = async (action: string, payload: any) => {
   const url = getUrl();
   const response = await fetch(url, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8',
+    },
     body: JSON.stringify({ action, ...payload }),
   });
 

@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
-import { MapPin, Calendar, Clock, Navigation } from 'lucide-react';
+import { MapPin, Calendar, Clock } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
 
 export default function WeddingDetails() {
+  const [copied, setCopied] = useState(false);
   
   const generateGoogleCalendarLink = () => {
     const text = encodeURIComponent("Sam & Charis Wedding");
@@ -13,8 +15,15 @@ export default function WeddingDetails() {
   };
 
   const copyAddress = () => {
-    navigator.clipboard.writeText(weddingData.location.address);
-    alert("Venue address copied to clipboard!");
+    try {
+      navigator.clipboard.writeText(weddingData.location.address).catch(() => {
+        // Ignore clipboard error in iframes
+      });
+    } catch (e) {
+      // Ignore synchronous iframe errors
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -99,7 +108,7 @@ export default function WeddingDetails() {
                  onClick={copyAddress}
                  className="font-nav flex-1 border border-theme-accent text-theme-accent hover:bg-theme-accent/10 py-3 px-4 rounded-xl text-[10px] font-medium uppercase tracking-[0.08em] transition-colors text-center"
                >
-                 Copy Address
+                 {copied ? "Copied!" : "Copy Address"}
                </button>
             </div>
           </motion.div>

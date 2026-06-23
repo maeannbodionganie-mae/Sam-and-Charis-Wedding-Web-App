@@ -37,7 +37,13 @@ export default function Hero({ onOpenRSVP }: HeroProps) {
   }, []);
 
   const handleCopyHashtag = () => {
-    navigator.clipboard.writeText(weddingData.couple.hashtag);
+    try {
+      navigator.clipboard.writeText(weddingData.couple.hashtag).catch(() => {
+        // Ignore clipboard error in iframes
+      });
+    } catch (e) {
+      // Ignore synchronous iframe errors
+    }
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
