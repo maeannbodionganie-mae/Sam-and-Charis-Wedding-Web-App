@@ -36,7 +36,7 @@ export default function WeddingDetails() {
             viewport={{ once: true }}
             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
           >
-            The Details
+            Details
           </motion.h2>
           <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto"></div>
         </div>
@@ -61,7 +61,7 @@ export default function WeddingDetails() {
                <span>{weddingData.date.time} PHT</span>
             </div>
             
-            <p className="text-theme-accent/80 mb-10 text-sm leading-relaxed max-w-sm">
+            <p className="text-theme-accent/80 mb-10 text-lg leading-relaxed max-w-sm">
                We appreciate you to come a little early
             </p>
 
@@ -91,7 +91,7 @@ export default function WeddingDetails() {
             
             <h3 className="font-serif text-3xl mb-2 text-theme-accent">{weddingData.location.venue}</h3>
             <p className="font-nav text-theme-accent/80 text-xs tracking-[0.08em] uppercase mb-6">Ceremony and Reception</p>
-            <p className="text-theme-accent/80 text-sm mb-10 max-w-sm leading-relaxed">
+            <p className="text-theme-accent/80 text-lg mb-10 max-w-sm leading-relaxed">
                {weddingData.location.address}
             </p>
 
