@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import SectionHeader from './SectionHeader';
 
 interface RSVPProps {
   onOpenRSVP: () => void;
@@ -6,15 +7,16 @@ interface RSVPProps {
 
 export default function RSVP({ onOpenRSVP }: RSVPProps) {
   return (
-    <section id="rsvp" className="bg-theme-bg py-32 px-4 sm:px-6 relative border-t border-theme-accent/20">
+    <section id="rsvp" className="bg-theme-bg py-32 px-4 sm:px-6 relative">
       <div className="max-w-3xl mx-auto text-center relative z-10">
+        <SectionHeader title="Will you join us?" />
+        
         <motion.div 
            initial={{ opacity: 0, y: 30 }}
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            className="flex flex-col items-center"
         >
-           <h2 className="font-serif text-5xl md:text-6xl tracking-tighter text-theme-accent mb-6">Will you join us?</h2>
            <p className="text-theme-accent/80 font-sans text-lg md:text-xl leading-relaxed mb-10 max-w-xl">
              We would be honored to have you celebrate our special day with us. Please let us know if you can make it.
            </p>

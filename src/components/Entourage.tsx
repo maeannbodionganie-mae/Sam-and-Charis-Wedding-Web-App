@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { weddingData } from '../data/weddingData';
+import SectionHeader from './SectionHeader';
 
 export default function Entourage() {
   const { entourage } = weddingData;
@@ -47,21 +48,10 @@ export default function Entourage() {
       {/* Background elegant accents */}
 
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 flex flex-col items-center">
-          <span className="text-theme-accent/80 uppercase tracking-widest text-[10px] font-medium block mb-4">The Entourage</span>
-          <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-          >
-            The Entourage
-          </motion.h2>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto mb-6"></div>
-          <p className="text-theme-accent/80 italic font-serif max-w-2xl mx-auto">
-            "With grateful hearts, we honor the people God used in our journey."
-          </p>
-        </div>
+        <SectionHeader subtitle="The Entourage" title="The Entourage" />
+        <p className="text-theme-accent/80 italic font-serif max-w-2xl mx-auto text-center mb-16">
+          "With grateful hearts, we honor the people God used in our journey."
+        </p>
 
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { weddingData } from '../data/weddingData';
 import { Heart, BookOpen, Users, Lightbulb, Music, Footprints, Flame } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 const iconMap: Record<string, React.ReactNode> = {
   Heart: <Heart className="w-5 h-5 text-theme-accent" />,
@@ -18,21 +19,11 @@ export default function OurStory() {
   return (
     <section id="story" className="bg-theme-bg py-24 md:py-32 px-4 md:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10 text-theme-accent">
-        <div className="text-center mb-20 flex flex-col items-center">
-          <span className="text-theme-accent/80 uppercase tracking-widest text-[10px] font-medium block mb-4">Our Chapter</span>
-          <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-          >
-            A Story Written by God
-          </motion.h2>
-          <p className="font-light text-theme-accent/80 text-sm md:text-base max-w-lg mb-8 tracking-wide">
-            What began with a worship concert became a testimony of God's faithfulness.
-          </p>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto"></div>
-        </div>
+        <SectionHeader 
+          subtitle="Our Chapter" 
+          title="A Story Written by God" 
+          description="What began with a worship concert became a testimony of God's faithfulness."
+        />
 
         <div className="relative">
           {/* Vertical line through timeline */}

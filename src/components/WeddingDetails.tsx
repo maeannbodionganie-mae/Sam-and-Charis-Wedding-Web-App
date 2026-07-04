@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Calendar, Clock } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import SectionHeader from './SectionHeader';
 
 export default function WeddingDetails() {
   const [copied, setCopied] = useState(false);
@@ -27,19 +28,9 @@ export default function WeddingDetails() {
   };
 
   return (
-    <section id="details" className="bg-theme-bg py-24 md:py-32 px-6 border-y border-theme-accent/20 relative">
+    <section id="details" className="bg-theme-bg py-24 md:py-32 px-6 relative">
       <div className="max-w-5xl mx-auto relative z-10 text-theme-accent">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-          >
-            Details
-          </motion.h2>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto"></div>
-        </div>
+        <SectionHeader title="Details" />
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           

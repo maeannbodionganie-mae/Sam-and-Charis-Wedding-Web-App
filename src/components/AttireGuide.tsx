@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import SectionHeader from './SectionHeader';
 
 export default function AttireGuide() {
   const colors = [
@@ -12,20 +13,9 @@ export default function AttireGuide() {
   ];
 
   return (
-    <section id="attire" className="bg-theme-bg py-24 px-6 md:px-12 relative border-y border-theme-accent/20 text-theme-accent">
+    <section id="attire" className="bg-theme-bg py-24 px-6 md:px-12 relative text-theme-accent">
       <div className="max-w-5xl mx-auto relative z-10">
-        <div className="text-center mb-12 flex flex-col items-center">
-          <span className="text-theme-accent/80 uppercase tracking-widest text-[10px] font-medium block mb-4">Dress Code</span>
-          <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-          >
-            Attire Guide
-          </motion.h2>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto"></div>
-        </div>
+        <SectionHeader subtitle="Dress Code" title="Attire Guide" />
 
         <div className="text-center mb-8 flex flex-col items-center">
            <h3 className="font-serif text-3xl text-theme-accent mb-2">Guests</h3>

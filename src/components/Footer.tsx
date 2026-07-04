@@ -11,8 +11,12 @@ export default function Footer() {
       <div className="max-w-4xl mx-auto flex flex-col items-center">
          
          {/* Monogram */}
-         <div className="font-script text-6xl text-theme-accent mb-6 tracking-normal relative">
-            S<span className="text-4xl text-theme-accent mx-2 font-script align-middle">&</span>C
+         <div className="mb-6 flex justify-center">
+            <img 
+              src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+              alt="Sam & Charis Logo" 
+              className="h-36 w-auto object-contain"
+            />
          </div>
          
          <div className="w-12 h-[1px] bg-theme-accent/30 mx-auto mb-8"></div>

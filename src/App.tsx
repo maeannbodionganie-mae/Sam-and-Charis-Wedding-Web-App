@@ -18,6 +18,7 @@ import FAQ from './components/FAQ';
 import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 import RSVPPage from './components/RSVPPage';
+import SectionDivider from './components/SectionDivider';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -36,15 +37,35 @@ export default function App() {
           <Navbar onOpenRSVP={() => setIsRSVPOpen(true)} />
           <Hero onOpenRSVP={() => setIsRSVPOpen(true)} />
           <WelcomeMessage />
+          
+          <SectionDivider withLogo={true} />
           <WeddingDetails />
+          
+          <SectionDivider />
           <OurStory />
+          
+          <SectionDivider withLogo={true} />
           <Gallery />
+          
+          <SectionDivider />
           <AttireGuide />
+          
+          <SectionDivider withLogo={true} />
           <Entourage />
+          
+          <SectionDivider />
           <Venue />
+          
+          <SectionDivider withLogo={true} />
           <GiftGuide />
+          
+          <SectionDivider />
           <FAQ />
+          
+          <SectionDivider withLogo={true} />
           <RSVP onOpenRSVP={() => setIsRSVPOpen(true)} />
+          
+          <SectionDivider />
           <Footer />
           <RSVPPage isOpen={isRSVPOpen} onClose={() => setIsRSVPOpen(false)} />
         </>

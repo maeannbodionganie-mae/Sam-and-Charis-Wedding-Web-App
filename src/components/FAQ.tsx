@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Search, ChevronDown } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import SectionHeader from './SectionHeader';
 
 export default function FAQ() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,20 +18,9 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faqs" className="bg-theme-bg py-24 px-4 sm:px-6 border-t border-theme-accent/20 text-theme-accent">
+    <section id="faqs" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12 flex flex-col items-center">
-          <span className="text-theme-accent/80 font-medium tracking-widest text-[10px] uppercase mb-4 block">Helpful Info</span>
-          <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-          >
-            Questions & Answers
-          </motion.h2>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto"></div>
-        </div>
+        <SectionHeader subtitle="Helpful Info" title="Questions & Answers" />
 
         {/* Search Bar */}
         <div className="relative mb-10 max-w-xl mx-auto">

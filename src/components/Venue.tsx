@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Map, Info } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import SectionHeader from './SectionHeader';
 
 export default function Venue() {
   const { location } = weddingData;
@@ -20,8 +21,10 @@ export default function Venue() {
   }
 
   return (
-    <section id="venue" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent border-y border-theme-accent/20">
+    <section id="venue" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-6xl mx-auto">
+        <SectionHeader subtitle="Location" title="The Venue" />
+        
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           
           <motion.div 
@@ -55,8 +58,8 @@ export default function Venue() {
             viewport={{ once: true }}
             className="order-1 lg:order-2 flex flex-col justify-center"
           >
-             <span className="font-nav text-theme-accent/80 font-medium tracking-[0.08em] text-sm uppercase mb-4">Location</span>
-             <h2 className="font-serif text-3xl md:text-5xl text-theme-accent mb-6 font-medium">Savanna Farm Tagaytay</h2>
+             <span className="font-nav text-theme-accent/80 font-medium tracking-[0.08em] text-sm uppercase mb-4">Celebration Site</span>
+             <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6 font-medium">Savanna Farm Tagaytay</h3>
              
              <div className="mb-8">
                <p className="text-theme-accent text-lg mb-2">{location.address}</p>

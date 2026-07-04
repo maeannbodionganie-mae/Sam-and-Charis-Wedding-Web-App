@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ZoomIn } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
+import SectionHeader from './SectionHeader';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -9,19 +10,9 @@ export default function Gallery() {
   const images = weddingData.gallery;
 
   return (
-    <section id="gallery" className="bg-theme-bg py-24 px-4 sm:px-6 border-y border-theme-accent/20 text-theme-accent">
+    <section id="gallery" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="text-center mb-16 flex flex-col items-center">
-           <motion.h2 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-serif text-4xl md:text-5xl text-theme-accent mb-6 tracking-tighter"
-           >
-             Captured Moments
-           </motion.h2>
-           <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto mb-6"></div>
-        </div>
+        <SectionHeader title="Captured Moments" />
 
         {/* Masonry-style Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px] md:auto-rows-[180px] lg:auto-rows-[220px]">

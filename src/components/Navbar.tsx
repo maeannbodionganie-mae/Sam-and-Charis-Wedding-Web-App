@@ -46,25 +46,49 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          isScrolled ? 'h-16 border-b border-theme-accent/20 bg-theme-bg shadow-sm' : 'h-16 bg-theme-bg border-b border-theme-accent/10'
+          isScrolled ? 'h-20 border-b border-theme-accent/20 bg-theme-bg shadow-sm' : 'h-24 bg-theme-bg border-b border-theme-accent/10'
         } flex items-center`}
       >
         <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
-          <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className="font-script text-4xl text-theme-accent shrink-0">
-            S <span className="text-3xl text-theme-accent align-middle mx-1 font-script">&</span> C
-          </a>
+          {/* Logo on the left (visible only on mobile) */}
+          <div className="md:hidden">
+            <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className={`shrink-0 flex items-center hover:opacity-80 transition-all duration-300 ${isScrolled ? 'h-16 w-16' : 'h-22 w-22'}`}>
+              <img 
+                src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+                alt="Sam & Charis Logo" 
+                className="h-full w-full object-contain"
+              />
+            </a>
+          </div>
+
+          {/* Spacer for desktop to keep layout alignment intact */}
+          <div className="hidden md:block w-10 h-10 invisible" />
 
           {/* Desktop Nav */}
           <nav className="font-nav hidden md:flex items-center space-x-6 lg:space-x-8 text-[11px] uppercase tracking-[0.08em] font-medium text-theme-accent">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleScrollTo(e, link.href)}
-                className="hover:text-theme-accent/70 transition-colors"
-              >
-                {link.name}
-              </a>
+              <React.Fragment key={link.name}>
+                {link.name === 'Home' && (
+                  <a 
+                    href="#home" 
+                    onClick={(e) => handleScrollTo(e, '#home')} 
+                    className={`shrink-0 flex items-center hover:opacity-80 transition-all duration-300 mr-1 ${isScrolled ? 'h-16 w-16' : 'h-20 w-20'}`}
+                  >
+                    <img 
+                      src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+                      alt="Sam & Charis Logo" 
+                      className="h-full w-full object-contain"
+                    />
+                  </a>
+                )}
+                <a
+                  href={link.href}
+                  onClick={(e) => handleScrollTo(e, link.href)}
+                  className="hover:text-theme-accent/70 transition-colors"
+                >
+                  {link.name}
+                </a>
+              </React.Fragment>
             ))}
             <button
               onClick={() => onOpenRSVP?.()}
@@ -102,16 +126,31 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
             >
               <X className="w-7 h-7" />
             </button>
-            <div className="flex flex-col space-y-6 mt-8 text-center text-theme-accent">
+            <div className="flex flex-col space-y-6 mt-8 items-center text-center text-theme-accent">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleScrollTo(e, link.href)}
-                  className="font-nav text-lg tracking-[0.08em] uppercase hover:text-theme-accent/70"
-                >
-                  {link.name}
-                </a>
+                <React.Fragment key={link.name}>
+                  {link.name === 'Home' && (
+                    <a
+                      href="#home"
+                      onClick={(e) => handleScrollTo(e, '#home')}
+                      className="w-24 h-24 mb-2 hover:opacity-80 transition-opacity"
+                    >
+                      <img 
+                        src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+                        alt="Sam & Charis Logo" 
+                        className="h-full w-full object-contain"
+                      />
+                    </a>
+                  )}
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleScrollTo(e, link.href)}
+                    className="font-nav text-lg tracking-[0.08em] uppercase hover:text-theme-accent/70"
+                  >
+                    {link.name}
+                  </a>
+                </React.Fragment>
               ))}
               <div className="pt-8 border-t border-theme-accent/20">
                 <button

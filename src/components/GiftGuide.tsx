@@ -1,20 +1,21 @@
 import { motion } from 'motion/react';
 import { Gift } from 'lucide-react';
+import SectionHeader from './SectionHeader';
 
 export default function GiftGuide() {
   return (
-    <section id="gifts" className="bg-theme-bg text-theme-accent py-24 px-6 md:px-12 relative overflow-hidden border-y border-theme-accent/20">
+    <section id="gifts" className="bg-theme-bg text-theme-accent py-24 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-3xl mx-auto text-center relative z-10">
-         <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-         >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-theme-accent/10 mb-8 border border-theme-accent/20 shadow-sm backdrop-blur-sm">
-                <Gift className="w-6 h-6 text-theme-accent/90" />
-            </div>
+        <SectionHeader title="Gift Guide" />
 
-            <h2 className="font-serif text-4xl md:text-5xl text-theme-accent mb-8 tracking-tighter">Gift Guide</h2>
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+        >
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-theme-accent/10 mb-8 border border-theme-accent/20 shadow-sm backdrop-blur-sm">
+                <Gift className="w-5 h-5 text-theme-accent/90" />
+            </div>
             
             <p className="font-serif text-lg md:text-xl leading-relaxed text-theme-accent/80 font-light italic px-4 mb-12 max-w-2xl mx-auto">
               “Your presence at our wedding is truly the greatest gift we could ask for. However, if you wish to bless us further, a monetary gift would be sincerely appreciated as we begin this new chapter of our lives together. Thank you for your love, support, and generosity.”
@@ -33,7 +34,7 @@ export default function GiftGuide() {
                      <span className="text-theme-accent/80 tracking-wide uppercase text-xs font-semibold mb-2">GCash</span>
                      <span className="font-medium text-theme-accent/80 text-xs mb-6">Scan the QR code below</span>
                      <img 
-                       src="https://res.cloudinary.com/dfpei7360/image/upload/v1781537269/QR_1_v0qmcz.png" 
+                       src="https://res.cloudinary.com/zjjivspl/image/upload/v1783147275/QR_MB_zs6l3h.png" 
                        alt="Bank QR Codes" 
                        className="w-full h-auto object-contain rounded-md"
                      />
