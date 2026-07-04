@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function OurStory() {
   return (
     <section id="story" className="bg-theme-bg py-24 md:py-32 px-4 md:px-6 relative overflow-hidden">
-      <div className="max-w-5xl mx-auto relative z-10 text-theme-accent">
+      <div className="max-w-7xl mx-auto relative z-10 text-theme-accent">
         <div className="text-center mb-20 flex flex-col items-center">
           <span className="text-theme-accent/80 uppercase tracking-widest text-[10px] font-medium block mb-4">Our Chapter</span>
           <motion.h2 
@@ -40,7 +40,7 @@ export default function OurStory() {
           
           <div className="space-y-12 md:space-y-0 relative">
             {weddingData.timeline.map((item, index) => (
-              <div key={index} className={`flex flex-col md:flex-row items-center md:items-stretch mb-12 lg:mb-24 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+              <div key={index} className={`flex flex-col md:flex-row items-center md:items-stretch mb-16 lg:mb-32 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                 
                 {/* Empty side for layout on desktop */}
                 <div className="hidden md:block md:w-1/2"></div>
@@ -60,17 +60,17 @@ export default function OurStory() {
                   transition={{ duration: 0.6 }}
                   className={`w-full md:w-1/2 px-4 md:px-12 flex flex-col ${index % 2 === 0 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} text-center`}
                 >
-                  <div className="bg-theme-accent/5 border border-theme-accent/25 p-8 rounded-xl shadow-sm hover:bg-theme-accent/10 transition-colors group">
+                  <div className="bg-theme-accent/5 border border-theme-accent/25 p-11 md:p-14 rounded-2xl shadow-sm hover:bg-theme-accent/10 transition-colors group w-full max-w-md md:max-w-xl">
                     {(item as any).image && (
                       <img
                         src={(item as any).image}
                         alt={item.title}
-                        className="mb-6 h-56 w-full rounded-2xl border border-theme-accent/40 object-cover shadow-md"
+                        className="mb-8 h-80 md:h-[350px] w-full rounded-2xl border border-theme-accent/40 object-cover shadow-md"
                       />
                     )}
-                    <span className="text-theme-accent/80 font-medium tracking-[0.2em] text-[10px] uppercase mb-4 block">{item.date}</span>
-                    <h3 className="font-serif text-2xl md:text-3xl text-theme-accent mb-4">{item.title}</h3>
-                    <p className="text-theme-accent/80 leading-relaxed text-sm md:text-[15px] font-light max-w-sm mx-auto md:mx-0 group-hover:text-theme-accent transition-colors">
+                    <span className="text-theme-accent/80 font-medium tracking-[0.2em] text-xs md:text-sm uppercase mb-6 block">{item.date}</span>
+                    <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6">{item.title}</h3>
+                    <p className="text-theme-accent/80 leading-relaxed text-base md:text-[18px] font-light max-w-md md:max-w-lg mx-auto md:mx-0 group-hover:text-theme-accent transition-colors">
                       {item.text}
                     </p>
                   </div>
@@ -83,14 +83,14 @@ export default function OurStory() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-20 md:mt-32 text-center flex flex-col items-center bg-theme-accent/5 border border-theme-accent/20 rounded-2xl p-10 max-w-2xl mx-auto shadow-sm backdrop-blur-sm"
+            className="mt-20 md:mt-32 text-center flex flex-col items-center bg-theme-accent/5 border border-theme-accent/20 rounded-2xl p-6 md:p-8 max-w-xl mx-auto shadow-sm backdrop-blur-sm"
           >
-            <Heart className="w-6 h-6 text-theme-accent/80 mb-6" />
-            <h3 className="font-serif text-2xl md:text-3xl text-theme-accent tracking-wide leading-relaxed">
+            <Heart className="w-6 h-6 text-theme-accent/80 mb-5" />
+            <h3 className="font-serif text-xl md:text-2xl text-theme-accent tracking-wide leading-relaxed">
               This is not merely a love story
             </h3>
             <div className="w-12 h-[1px] bg-theme-accent/40 my-4"></div>
-            <p className="font-serif text-2xl md:text-3xl text-theme-accent italic">
+            <p className="font-serif text-xl md:text-2xl text-theme-accent italic">
               It is a testimony of God's faithfulness.
             </p>
           </motion.div>

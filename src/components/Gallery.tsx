@@ -24,52 +24,56 @@ export default function Gallery() {
         </div>
 
         {/* Masonry-style Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] md:auto-rows-[250px]">
-          {images.map((img, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`relative group overflow-hidden rounded-xl cursor-pointer ${img.span} shadow-sm border border-theme-accent/25`}
-              onClick={() => setSelectedImage(img.url)}
-            >
-              <img
-                src={img.url}
-                alt={img.caption}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-theme-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-[2px]">
-                 <ZoomIn className="text-theme-accent w-6 h-6 mb-3 opacity-80" />
-                 <span className="text-theme-accent font-serif tracking-[0.2em] uppercase text-[10px] md:text-xs text-center border border-theme-accent/20 px-4 py-2 rounded-full">{img.caption}</span>
-              </div>
-            </motion.div>
-          ))}
-          
-          {/* Video Placeholder Box */}
-          <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="relative col-span-2 row-span-1 md:col-span-2 md:row-span-2 rounded-xl overflow-hidden group cursor-pointer border border-theme-accent/25"
-          >
-              <img
-                src={weddingData.videoPlaceholder}
-                alt="Engagement Video"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-theme-bg/30 flex items-center justify-center group-hover:bg-theme-bg/50 transition-colors backdrop-blur-[1px] group-hover:backdrop-blur-[2px]">
-                 <div className="w-16 h-16 rounded-full border border-theme-accent/50 flex items-center justify-center backdrop-blur-md bg-theme-bg/10 shadow-sm">
-                    <div className="w-0 h-0 border-t-6 border-t-transparent border-l-[10px] border-l-theme-accent border-b-6 border-b-transparent ml-1 opacity-80"></div>
-                 </div>
-              </div>
-              <div className="absolute bottom-6 left-6">
-                 <span className="text-theme-accent font-serif tracking-[0.2em] uppercase text-xs drop-shadow-md">Engagement Film</span>
-              </div>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px] md:auto-rows-[180px] lg:auto-rows-[220px]">
+          {images.map((img, idx) => {
+            let spanClass = "";
+            switch (idx) {
+              case 0: // Hero Image (Large)
+                spanClass = "col-span-1 md:col-span-2 row-span-1 md:row-span-3";
+                break;
+              case 1: // Img 2
+                spanClass = "col-span-1 row-span-1";
+                break;
+              case 2: // Img 3
+                spanClass = "col-span-1 row-span-1";
+                break;
+              case 3: // Img 4
+                spanClass = "col-span-1 row-span-1";
+                break;
+              case 4: // Img 5
+                spanClass = "col-span-1 md:col-span-2 row-span-1";
+                break;
+              case 5: // Img 6
+                spanClass = "col-span-1 row-span-1";
+                break;
+              default:
+                spanClass = "col-span-1 row-span-1";
+            }
+
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`relative group overflow-hidden rounded-xl cursor-pointer ${spanClass} shadow-sm border border-theme-accent/25`}
+                onClick={() => setSelectedImage(img.url)}
+              >
+                <img
+                  src={img.url}
+                  alt={img.caption}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-theme-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-[2px]">
+                   <ZoomIn className="text-theme-accent w-6 h-6 mb-3 opacity-80" />
+                   <span className="text-theme-accent font-serif tracking-[0.2em] uppercase text-[10px] md:text-xs text-center border border-theme-accent/20 px-4 py-2 rounded-full">{img.caption}</span>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

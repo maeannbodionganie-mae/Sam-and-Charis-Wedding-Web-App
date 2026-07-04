@@ -22,42 +22,42 @@ export const weddingData = {
       title: "First Encounter",
       text: "A spare ticket, a shared row, and a ride home with spiritual family. What seemed like an ordinary evening became the first chapter of a story God was faithfully writing.",
       icon: "Music",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527044/WhatsApp_Image_2026-06-09_at_11.23.21_PM_ofvdzs.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147309/WhatsApp_Image_2026-06-09_at_11.23.21_PM_riiapw.jpg"
     },
     {
       date: "May 25, 2024",
       title: "First Fellowship",
       text: "The same friends from the concert invited Sam and Cha to B1G Manila, where they met their spiritual leaders. Through God's providence, their discipleship journey began.",
       icon: "Users",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527049/IMG_9052_whqoss.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147289/IMG_9052_m0zcsn.jpg"
     },
     {
       date: "July 6, 2024",
       title: "God's Promise to Her",
       text: "While seeking the Lord through prayer and fasting, Cha received God's promise through Exodus 23:20: “I am sending an angel ahead of you.” Before His plans unfolded, she learned to trust His guidance and wait on His timing.",
       icon: "BookOpen",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527037/WhatsApp_Image_2026-06-09_at_9.33.00_PM_1_rilarm.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147303/WhatsApp_Image_2026-06-09_at_9.33.00_PM_1_jzrwcq.jpg"
     },
     {
       date: "July 30, 2026",
       title: "God's Words for Him",
       text: "Through continuous seeking of the Lord, Sam sought God's will before taking a step forward. By His grace, the Lord gave clarity and peace, leading him to lay his intentions with Cha.",
       icon: "Lightbulb",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527039/IMG_2727_kd1nnl.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147384/IMG_2727_gxv59j.jpg"
     },
     {
       date: "August 2, 2024",
       title: "Their First Love",
       text: "At the Unplug True Life Retreat, Sam and Cha encountered their first and greatest love, Jesus Christ. Before teaching them how to love one another, God taught them to love Him first.",
       icon: "Cross", // Will map to a suitable lucide icon
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527046/IMG_9353_yzr9ia.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147285/IMG_9353_ada14m.jpg"
     },
     {
       date: "August 17, 2024",
       title: "Intentional Pursuit",
       text: "After much prayer, confirmation, and Godly counsel, Sam intentionally pursued Cha with clarity and purpose. Before taking this step, he sought the blessing and guidance of family, friends, and spiritual mentors.",
       icon: "Footprints",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527035/IMG_1545_qobjyz.jpg",
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147311/WhatsApp_Image_2026-06-10_at_7.19.21_PM_k6alig.jpg",
     },
     {
       date: "December 25, 2024",
@@ -71,31 +71,31 @@ export const weddingData = {
       title: "Engagement Day",
       text: "Sam proposed in Balabac on Cha's 26th birthday, in a place that held deep significance in her walk with God. There, the Lord beautifully affirmed that His promises never fail and His timing is always worth waiting for.",
       icon: "Ring",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527038/IMG_8620_rrpvaw.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147251/IMG_8620_g56uir.jpg"
     },
     {
       date: "October 13, 2025",
       title: "Family Blessing",
       text: "By God's grace, Sam and Cha traveled to visit Cha's family and humbly asked for their blessing as they prepared for marriage. With joy, encouragement, and open hearts, both families embraced the next chapter God was unfolding.",
       icon: "Users",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781527043/IMG_9939_kwyapt.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147266/IMG_9939_jfabip.jpg"
     },
     {
       date: "December 25, 2025",
       title: "One Year of God's Faithfulness",
       text: "As they celebrated their first year together, God continued to reveal His faithfulness. Through the story of Mary and Joseph, He affirmed their calling toward marriage and reminded them that His plans are always accomplished in His perfect timing. Along the way, they witnessed His provision, favor, guidance, and grace.",
       icon: "Lightbulb",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781526936/IMG_0621_1_jkbbci.jpg"
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147283/IMG_0621_ipwrvl.jpg"
     }
   ],
   gallery: [
-    { url: "https://images.unsplash.com/photo-1583939003579-2287cda4628f?w=800&auto=format&fit=crop", caption: "Balabac Proposal", span: "col-span-2 row-span-2" },
-    { url: "https://images.unsplash.com/photo-1546193430-c2d207739ed7?w=500&auto=format&fit=crop", caption: "By Grace Alone", span: "col-span-1 row-span-1" },
-    { url: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&auto=format&fit=crop", caption: "Our Journey", span: "col-span-1 row-span-2" },
-    { url: "https://images.unsplash.com/photo-1516601267439-d3fb15316db0?w=500&auto=format&fit=crop", caption: "God's Perfect Timing", span: "col-span-1 row-span-1" },
-    { url: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=500&auto=format&fit=crop", caption: "Soon to be Mr. & Mrs.", span: "col-span-2 row-span-1" }
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/3_ifvktx.jpg", caption: "Balabac Proposal" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149420/9_bf5eee.jpg", caption: "By Grace Alone" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149455/1_hyovtq.jpg", caption: "Our Journey" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147300/Screenshot_2026-06-08_at_12.24.28_AM_xnawtl.jpg", caption: "God's Perfect Timing" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/5_m0kjy0.jpg", caption: "Soon to be Mr. & Mrs." },
+    { url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600&auto=format&fit=crop", caption: "A Promise of Forever" }
   ],
-  videoPlaceholder: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600&auto=format&fit=crop", // placeholder for Engagement Video thumbnail
   entourage: {
     parentsOfBride: ["Mr. Edgardo Soto & Mrs. Ma. Socorro Soto"],
     parentsOfGroom: ["Ms. Belinda Flores"],
