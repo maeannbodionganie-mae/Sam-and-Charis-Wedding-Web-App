@@ -21,7 +21,7 @@ export default function Venue() {
   }
 
   return (
-    <section id="venue" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
+    <section id="venue" className="bg-theme-bg py-16 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-6xl mx-auto">
         <SectionHeader subtitle="Location" title="The Venue" />
         

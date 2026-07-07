@@ -13,7 +13,7 @@ export default function AttireGuide() {
   ];
 
   return (
-    <section id="attire" className="bg-theme-bg py-24 px-6 md:px-12 relative text-theme-accent">
+    <section id="attire" className="bg-theme-bg py-16 md:py-20 px-6 md:px-12 relative text-theme-accent">
       <div className="max-w-5xl mx-auto relative z-10">
         <SectionHeader subtitle="Dress Code" title="Attire Guide" />
 
@@ -28,17 +28,17 @@ export default function AttireGuide() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-theme-accent/5 rounded-xl p-8 border border-theme-accent/25 shadow-sm flex flex-col h-full"
+            className="p-4 md:p-8 flex flex-col h-full"
           >
             <h3 className="font-serif text-2xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-6">For Gentlemen</h3>
             <p className="text-theme-accent/80 font-light text-sm leading-relaxed flex-grow">
               Black suit with a sage green necktie.
             </p>
-             <div className="mt-8 flex justify-center">
+             <div className="mt-8 flex justify-center overflow-hidden rounded-xl h-[500px]">
                 <img 
                   src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_men_s_attire_ntusfe.png" 
                   alt="Gentlemen Attire Reference"
-                  className="w-full rounded-xl border border-theme-accent/30 shadow-md object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
              </div>
           </motion.div>
@@ -48,17 +48,17 @@ export default function AttireGuide() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-theme-accent/5 rounded-xl p-8 border border-theme-accent/25 shadow-sm flex flex-col h-full"
+            className="p-4 md:p-8 flex flex-col h-full"
           >
             <h3 className="font-serif text-2xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-6">For Ladies</h3>
             <p className="text-theme-accent/80 font-light text-sm leading-relaxed flex-grow">
               Formal dress in butter yellow or sage green.
             </p>
-             <div className="mt-8 flex justify-center">
+             <div className="mt-8 flex justify-center overflow-hidden rounded-xl h-[500px]">
                 <img 
                   src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_women_s_attire_1_n6tibx.png" 
                   alt="Ladies Attire Reference"
-                  className="w-full rounded-xl border border-theme-accent/30 shadow-md object-cover"
+                  className="w-full h-full object-cover object-center scale-[1.7] origin-[50%_65%]"
                 />
              </div>
           </motion.div>
@@ -68,7 +68,7 @@ export default function AttireGuide() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-theme-accent/5 rounded-xl p-8 md:p-12 border border-theme-accent/25 shadow-sm flex flex-col items-center mb-16"
+          className="p-4 md:p-12 flex flex-col items-center mb-16"
         >
           <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Principal & Secondary Sponsors</h3>
           
@@ -86,7 +86,7 @@ export default function AttireGuide() {
           <img 
             src="https://res.cloudinary.com/dfpei7360/image/upload/v1781527044/Ninong_Ninang_Attire_yfip5u.png" 
             alt="Principal & Secondary Sponsors Attire"
-            className="w-full max-w-2xl rounded-xl border border-theme-accent/30 shadow-md object-cover"
+            className="w-full max-w-2xl object-cover"
           />
         </motion.div>
 
@@ -95,7 +95,7 @@ export default function AttireGuide() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-theme-accent/5 rounded-xl p-8 md:p-12 border border-theme-accent/25 shadow-sm flex flex-col items-center mb-16"
+          className="p-4 md:p-12 flex flex-col items-center mb-16"
         >
           <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Team Groom & Team Bride</h3>
           
@@ -116,7 +116,7 @@ export default function AttireGuide() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-theme-accent/5 p-8 md:p-12 rounded-xl shadow-sm border border-theme-accent/25 flex flex-col items-center text-center"
+          className="p-4 md:p-12 flex flex-col items-center text-center"
         >
           <h3 className="font-serif text-3xl text-theme-accent pb-4 mb-4">Color Palette</h3>
           <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto mb-10"></div>

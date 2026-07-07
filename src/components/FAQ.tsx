@@ -18,7 +18,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faqs" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
+    <section id="faqs" className="bg-theme-bg py-16 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-4xl mx-auto">
         <SectionHeader subtitle="Helpful Info" title="Questions & Answers" />
 

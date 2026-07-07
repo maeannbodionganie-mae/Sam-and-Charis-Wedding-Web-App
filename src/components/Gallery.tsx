@@ -10,7 +10,7 @@ export default function Gallery() {
   const images = weddingData.gallery;
 
   return (
-    <section id="gallery" className="bg-theme-bg py-24 px-4 sm:px-6 text-theme-accent">
+    <section id="gallery" className="bg-theme-bg py-16 px-4 sm:px-6 text-theme-accent">
       <div className="max-w-6xl mx-auto relative z-10">
         <SectionHeader title="Captured Moments" />
 

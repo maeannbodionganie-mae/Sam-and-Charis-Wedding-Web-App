@@ -17,7 +17,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function OurStory() {
   return (
-    <section id="story" className="bg-theme-bg py-24 md:py-32 px-4 md:px-6 relative overflow-hidden">
+    <section id="story" className="bg-theme-bg py-16 md:py-20 px-4 md:px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10 text-theme-accent">
         <SectionHeader 
           subtitle="Our Chapter" 

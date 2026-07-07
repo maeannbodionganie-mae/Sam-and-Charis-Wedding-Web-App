@@ -44,7 +44,7 @@ export default function Entourage() {
     };
 
   return (
-    <section id="entourage" className="bg-theme-bg py-24 px-4 sm:px-6 relative overflow-hidden text-theme-accent">
+    <section id="entourage" className="bg-theme-bg py-16 px-4 sm:px-6 relative overflow-hidden text-theme-accent">
       {/* Background elegant accents */}
 
       <div className="max-w-6xl mx-auto relative z-10">

@@ -9,23 +9,6 @@ interface SectionHeaderProps {
 export default function SectionHeader({ subtitle, title, description }: SectionHeaderProps) {
   return (
     <div className="text-center mb-16 flex flex-col items-center select-none">
-      {/* Centered Logo at the top of the major section */}
-      <motion.div
-        initial={{ opacity: 0, y: -15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        className="mb-4 relative"
-      >
-        {/* Subtle radial background glow to highlight the logo */}
-        <div className="absolute inset-0 bg-theme-accent/5 rounded-full blur-xl scale-125 pointer-events-none" />
-        <img 
-          src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
-          alt="Sam & Charis Logo" 
-          className="w-28 h-28 md:w-36 md:h-36 object-contain pointer-events-none select-none mx-auto opacity-85 hover:opacity-100 transition-opacity duration-300 relative z-10"
-        />
-      </motion.div>
-
       {/* Subtitle with premium wide letter-spacing */}
       {subtitle && (
         <span className="text-theme-accent/70 uppercase tracking-[0.25em] text-[10px] md:text-[11px] font-semibold block mb-3">

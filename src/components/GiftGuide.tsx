@@ -4,7 +4,7 @@ import SectionHeader from './SectionHeader';
 
 export default function GiftGuide() {
   return (
-    <section id="gifts" className="bg-theme-bg text-theme-accent py-24 px-6 md:px-12 relative overflow-hidden">
+    <section id="gifts" className="bg-theme-bg text-theme-accent py-16 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <SectionHeader title="Gift Guide" />
 

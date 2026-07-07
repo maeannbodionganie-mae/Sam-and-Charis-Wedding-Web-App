@@ -28,7 +28,7 @@ export default function WeddingDetails() {
   };
 
   return (
-    <section id="details" className="bg-theme-bg py-24 md:py-32 px-6 relative">
+    <section id="details" className="bg-theme-bg py-16 md:py-20 px-6 relative">
       <div className="max-w-5xl mx-auto relative z-10 text-theme-accent">
         <SectionHeader title="Details" />
 
