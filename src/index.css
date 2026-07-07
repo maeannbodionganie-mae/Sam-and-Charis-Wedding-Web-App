@@ -29,7 +29,7 @@ html {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-theme-bg);
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: rgba(230, 199, 146, 0.25);

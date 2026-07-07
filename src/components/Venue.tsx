@@ -66,14 +66,14 @@ export default function Venue() {
                <p className="font-nav text-theme-accent/80 uppercase tracking-[0.08em] text-sm">Ceremony & Reception</p>
              </div>
 
-             <div className="bg-theme-accent/5 border border-theme-accent/20 rounded-xl p-6 shadow-sm mb-8 space-y-4 text-sm text-theme-accent/90 leading-relaxed font-light">
+             <div className="bg-theme-accent/5 border border-theme-accent/20 rounded-xl p-6 shadow-sm mb-8 space-y-4 text-base md:text-lg text-theme-accent/90 leading-relaxed font-light">
                 <div className="flex items-start gap-3">
                   <Info className="w-5 h-5 text-theme-accent/50 shrink-0 mt-0.5" />
                   <p>The entire event (ceremony and reception) will be held at this location.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Info className="w-5 h-5 text-theme-accent/50 shrink-0 mt-0.5" />
-                  <p>Please arrive early for registration. Parking is available but limited on a first-come, first-served basis.</p>
+                  <p>Please arrive early to secure your preferred parking spot.</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Info className="w-5 h-5 text-theme-accent/50 shrink-0 mt-0.5" />

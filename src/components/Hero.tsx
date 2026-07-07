@@ -59,16 +59,16 @@ export default function Hero({ onOpenRSVP }: HeroProps) {
   };
 
   return (
-    <section id="home" className="relative min-h-[100dvh] w-full flex items-center justify-center bg-theme-bg text-theme-accent pt-32 pb-16 md:pb-24 overflow-hidden">
+    <section id="home" className="relative min-h-[100dvh] w-full flex items-center justify-center bg-theme-bg text-theme-accent pt-24 pb-12 md:pb-16 overflow-hidden">
       
-      {/* Background Video (starts below navbar) */}
-      <div className="absolute inset-x-0 bottom-0 top-16 z-0 overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
         >
           <source src="https://res.cloudinary.com/dfpei7360/video/upload/v1/BG_obzcfl.mp4" type="video/mp4" />
         </video>

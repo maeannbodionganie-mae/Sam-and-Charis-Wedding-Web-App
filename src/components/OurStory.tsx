@@ -1,92 +1,113 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { weddingData } from '../data/weddingData';
-import { Heart, BookOpen, Users, Lightbulb, Music, Footprints, Flame } from 'lucide-react';
-import SectionHeader from './SectionHeader';
-
-const iconMap: Record<string, React.ReactNode> = {
-  Heart: <Heart className="w-5 h-5 text-theme-accent" />,
-  BookOpen: <BookOpen className="w-5 h-5 text-theme-accent" />,
-  Users: <Users className="w-5 h-5 text-theme-accent" />,
-  Lightbulb: <Lightbulb className="w-5 h-5 text-theme-accent" />,
-  Music: <Music className="w-5 h-5 text-theme-accent" />,
-  Footprints: <Footprints className="w-5 h-5 text-theme-accent" />,
-  Cross: <Flame className="w-5 h-5 text-theme-accent" />, // Using flame as substitute if standard lucide lacks a Cross
-  Ring: <div className="w-3 h-3 rounded-full border-2 border-theme-accent/80 box-content flex items-center justify-center"><div className="w-1 h-1 rounded-full bg-theme-accent mb-2"></div></div>
-};
 
 export default function OurStory() {
   return (
-    <section id="story" className="bg-theme-bg py-16 md:py-20 px-4 md:px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative z-10 text-theme-accent">
-        <SectionHeader 
-          subtitle="Our Chapter" 
-          title="A Story Written by God" 
-          description="What began with a worship concert became a testimony of God's faithfulness."
-        />
+    <section id="story" className="bg-theme-bg text-theme-accent py-20 md:py-32 overflow-hidden relative">
+      <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
+        {/* Header Section */}
+        <div className="mb-24 md:mb-40 flex flex-col items-center justify-center text-center">
+           <motion.p 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             className="font-nav text-theme-accent/70 tracking-[0.2em] uppercase text-xs md:text-sm mb-6"
+           >
+             Our Chapter
+           </motion.p>
+           <motion.h2 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, delay: 0.1 }}
+             className="font-serif text-5xl md:text-7xl lg:text-8xl text-theme-accent mb-8"
+           >
+             A Story Written by God
+           </motion.h2>
+           <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true, delay: 0.2 }}
+             className="max-w-2xl font-sans text-theme-accent/80 text-lg md:text-xl leading-relaxed"
+           >
+             What began with a worship concert became a testimony of God's faithfulness. Every chapter was beautifully written in His perfect timing.
+           </motion.div>
+        </div>
+        
+        {/* Timeline */}
+        <div className="relative flex flex-col gap-32 md:gap-48 mt-12 md:mt-24">
+          {/* Vertical connecting line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-theme-accent/20 transform -translate-x-1/2 z-0"></div>
 
-        <div className="relative">
-          {/* Vertical line through timeline */}
-          <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-[1px] bg-theme-accent flex-none transform -translate-x-1/2 opacity-50"></div>
-          
-          <div className="space-y-12 md:space-y-0 relative">
-            {weddingData.timeline.map((item, index) => (
-              <div key={index} className={`flex flex-col md:flex-row items-center md:items-stretch mb-16 lg:mb-32 ${index % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
-                
-                {/* Empty side for layout on desktop */}
-                <div className="hidden md:block md:w-1/2"></div>
-
-                {/* The Timeline Icon / Date bubble on mobile */}
-                <div className="flex md:absolute left-1/2 md:transform md:-translate-x-1/2 mb-4 md:mb-0 items-center justify-center z-10 mt-1 selection:bg-none">
-                   <div className="w-10 h-10 rounded-full bg-theme-bg border border-theme-accent flex items-center justify-center shadow-sm text-theme-accent z-10 relative">
-                      {iconMap[item.icon] ? React.cloneElement(iconMap[item.icon] as React.ReactElement, { className: "w-4 h-4 text-theme-accent" }) : <Heart className="w-4 h-4 text-theme-accent" />}
-                   </div>
-                </div>
-
-                {/* Content Card */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -30 : 30 }}
-                  whileInView={{ opacity: 1, y: 0, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6 }}
-                  className={`w-full md:w-1/2 px-4 md:px-12 flex flex-col ${index % 2 === 0 ? 'md:items-end md:text-right' : 'md:items-start md:text-left'} text-center`}
-                >
-                  <div className="bg-theme-accent/5 border border-theme-accent/25 p-11 md:p-14 rounded-2xl shadow-sm hover:bg-theme-accent/10 transition-colors group w-full max-w-md md:max-w-xl">
-                    {(item as any).image && (
-                      <img
-                        src={(item as any).image}
-                        alt={item.title}
-                        className="mb-8 h-80 md:h-[350px] w-full rounded-2xl border border-theme-accent/40 object-cover shadow-md"
-                      />
-                    )}
-                    <span className="text-theme-accent/80 font-medium tracking-[0.2em] text-xs md:text-sm uppercase mb-6 block">{item.date}</span>
-                    <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6">{item.title}</h3>
-                    <p className="text-theme-accent/80 leading-relaxed text-base md:text-[18px] font-light max-w-md md:max-w-lg mx-auto md:mx-0 group-hover:text-theme-accent transition-colors">
-                      {item.text}
-                    </p>
+          {weddingData.timeline.map((item, index) => {
+             const isEven = index % 2 === 0;
+             
+             return (
+               <div key={index} className={`flex flex-col md:flex-row items-center gap-16 md:gap-24 w-full relative z-10 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
+                  
+                  {/* Center Dot for Timeline (Desktop Only) */}
+                  <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-theme-bg border border-theme-accent rounded-full z-20 items-center justify-center">
+                    <div className="w-1 h-1 bg-theme-accent rounded-full opacity-70"></div>
                   </div>
-                </motion.div>
-              </div>
-            ))}
-          </div>
 
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mt-20 md:mt-32 text-center flex flex-col items-center bg-theme-accent/5 border border-theme-accent/20 rounded-2xl p-6 md:p-8 max-w-xl mx-auto shadow-sm backdrop-blur-sm"
-          >
-            <Heart className="w-6 h-6 text-theme-accent/80 mb-5" />
-            <h3 className="font-serif text-xl md:text-2xl text-theme-accent tracking-wide leading-relaxed">
-              This is not merely a love story
-            </h3>
-            <div className="w-12 h-[1px] bg-theme-accent/40 my-4"></div>
-            <p className="font-serif text-xl md:text-2xl text-theme-accent italic">
-              It is a testimony of God's faithfulness.
-            </p>
-          </motion.div>
+                  {/* Image Side */}
+                  <div className="w-full md:w-1/2 relative flex justify-center md:justify-end">
+                    
+                    {/* Decorative Border */}
+                    <motion.div 
+                      initial={{ opacity: 0, x: isEven ? -20 : 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      className={`absolute top-0 w-[85%] aspect-[4/3] md:aspect-[4/3] ${isEven ? 'left-4 md:left-12' : 'right-4 md:right-12'} -translate-y-4 md:-translate-y-6 border border-theme-accent/30 z-0`}
+                    />
+                    
+                    {/* Image */}
+                    <div className="relative w-[85%] aspect-[4/3] md:aspect-[4/3] z-10">
+                       <motion.img 
+                         initial={{ opacity: 0, scale: 0.95 }}
+                         whileInView={{ opacity: 1, scale: 1 }}
+                         viewport={{ once: true, margin: "-50px" }}
+                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                         src={(item as any).image} 
+                         alt={item.title} 
+                         className="absolute inset-0 w-full h-full object-cover shadow-2xl shadow-black/20" 
+                       />
+                    </div>
+                  </div>
+                  
+                  {/* Text Side */}
+                  <div className={`w-full md:w-1/2 flex flex-col ${isEven ? 'items-start text-left md:pl-8' : 'items-start md:items-end text-left md:text-right md:pr-8'} z-10`}>
+                     <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="w-full max-w-md"
+                     >
+                       <div className={`flex items-center gap-4 mb-6 ${!isEven ? 'md:justify-end' : ''}`}>
+                         <h3 className="font-nav text-xl md:text-2xl uppercase tracking-[0.15em] text-theme-accent">
+                           {item.title}
+                         </h3>
+                         <div className="h-[1px] w-12 bg-theme-accent/50 hidden md:block" />
+                       </div>
+                       
+                       <p className="font-sans text-theme-accent/80 text-base md:text-lg leading-relaxed mb-8">
+                          {item.text}
+                       </p>
+                       
+                       <p className="font-nav text-[10px] md:text-xs tracking-[0.2em] uppercase text-theme-accent/60">
+                         {item.date}
+                       </p>
+                     </motion.div>
+                  </div>
+
+               </div>
+             );
+          })}
         </div>
       </div>
     </section>
   );
 }
+

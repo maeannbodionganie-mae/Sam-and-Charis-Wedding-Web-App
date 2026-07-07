@@ -4,11 +4,8 @@ import SectionHeader from './SectionHeader';
 export default function AttireGuide() {
   const colors = [
     { name: 'Deep Sage', hex: '#8d9e65' },
-    { name: 'Olive Green', hex: '#7f8f6e' },
     { name: 'Muted Moss', hex: '#8a8b57' },
-    { name: 'Soft Sage', hex: '#abc86a' },
     { name: 'Light Sage', hex: '#bac276' },
-    { name: 'Champagne Cream', hex: '#fff0b3' },
     { name: 'Butter Yellow', hex: '#fff8cc' },
   ];
 
@@ -64,13 +61,14 @@ export default function AttireGuide() {
           </motion.div>
         </div>
 
+        {/* Principal Sponsors */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="p-4 md:p-12 flex flex-col items-center mb-16"
         >
-          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Principal & Secondary Sponsors</h3>
+          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Principal Sponsors</h3>
           
           <div className="grid md:grid-cols-2 gap-8 w-full mb-10 max-w-3xl">
             <div className="text-center md:text-right md:border-r border-theme-accent/20 md:pr-8">
@@ -85,7 +83,34 @@ export default function AttireGuide() {
 
           <img 
             src="https://res.cloudinary.com/dfpei7360/image/upload/v1781527044/Ninong_Ninang_Attire_yfip5u.png" 
-            alt="Principal & Secondary Sponsors Attire"
+            alt="Principal Sponsors Attire"
+            className="w-full max-w-2xl object-cover"
+          />
+        </motion.div>
+
+        {/* Secondary Sponsors */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="p-4 md:p-12 flex flex-col items-center mb-16"
+        >
+          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Secondary Sponsors</h3>
+          
+          <div className="grid md:grid-cols-2 gap-8 w-full mb-10 max-w-3xl">
+            <div className="text-center md:text-right md:border-r border-theme-accent/20 md:pr-8">
+              <h4 className="font-serif text-xl text-theme-accent mb-2">Gentlemen</h4>
+              <p className="text-theme-accent/80 font-light text-sm">Barong Tagalog with black pants and black shoes.</p>
+            </div>
+            <div className="text-center md:text-left md:pl-8">
+              <h4 className="font-serif text-xl text-theme-accent mb-2">Ladies</h4>
+              <p className="text-theme-accent/80 font-light text-sm">Sage green dress.</p>
+            </div>
+          </div>
+
+          <img 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783147299/Secondary_Sponsor_izhvty.png" 
+            alt="Secondary Sponsors Attire"
             className="w-full max-w-2xl object-cover"
           />
         </motion.div>
@@ -138,7 +163,7 @@ export default function AttireGuide() {
           {/* Dress Code Reminder */}
           <div className="max-w-3xl w-full border-t border-theme-accent/20 pt-12">
             <h4 className="font-serif text-2xl text-theme-accent mb-6">Dress Code Reminder</h4>
-            <div className="space-y-4 text-theme-accent/80 font-light text-sm leading-relaxed max-w-2xl mx-auto">
+            <div className="space-y-4 text-theme-accent/80 font-light text-sm leading-relaxed max-w-2xl mx-auto text-justify">
               <p>
                 We kindly request all guests to honor the dress code by avoiding overly casual attire such as polo shirts, slippers, denim, and jeans. Please avoid mini dresses.
               </p>

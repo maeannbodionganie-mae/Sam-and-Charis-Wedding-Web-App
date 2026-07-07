@@ -2,65 +2,75 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ZoomIn } from 'lucide-react';
 import { weddingData } from '../data/weddingData';
-import SectionHeader from './SectionHeader';
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
   const images = weddingData.gallery;
 
+  const layouts = [
+    { width: '70%', marginLeft: '15%' },
+    { width: '80%', marginLeft: '5%' },
+    { width: '75%', marginLeft: '15%' },
+    { width: '75%', marginLeft: '10%' },
+    { width: '70%', marginLeft: '20%' },
+    { width: '75%', marginLeft: '10%' },
+  ];
+
   return (
-    <section id="gallery" className="bg-theme-bg py-16 px-4 sm:px-6 text-theme-accent">
+    <section id="gallery" className="relative py-24 px-4 sm:px-6 overflow-hidden">
+      {/* Blurred Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-110 filter blur-xl" 
+        style={{ backgroundImage: `url(${images[0].url})` }}
+      />
+      <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply" />
+      <div className="absolute inset-0 bg-theme-bg/60" />
+
       <div className="max-w-6xl mx-auto relative z-10">
-        <SectionHeader title="Captured Moments" />
+        {/* Custom Header for Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 select-none"
+        >
+          <h2 className="font-sans text-theme-accent uppercase tracking-[0.4em] md:tracking-[0.6em] text-xs md:text-sm font-light">
+            Captured Moments
+          </h2>
+        </motion.div>
 
-        {/* Masonry-style Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[240px] md:auto-rows-[180px] lg:auto-rows-[220px]">
+        {/* Pill-shaped Staggered Layout */}
+        <div className="flex flex-col gap-3 md:gap-4 max-w-4xl mx-auto mt-4">
           {images.map((img, idx) => {
-            let spanClass = "";
-            switch (idx) {
-              case 0: // Hero Image (Large)
-                spanClass = "col-span-1 md:col-span-2 row-span-1 md:row-span-3";
-                break;
-              case 1: // Img 2
-                spanClass = "col-span-1 row-span-1";
-                break;
-              case 2: // Img 3
-                spanClass = "col-span-1 row-span-1";
-                break;
-              case 3: // Img 4
-                spanClass = "col-span-1 row-span-1";
-                break;
-              case 4: // Img 5
-                spanClass = "col-span-1 md:col-span-2 row-span-1";
-                break;
-              case 5: // Img 6
-                spanClass = "col-span-1 row-span-1";
-                break;
-              default:
-                spanClass = "col-span-1 row-span-1";
-            }
-
+            const layout = layouts[idx % layouts.length];
             return (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative group overflow-hidden rounded-xl cursor-pointer ${spanClass} shadow-sm border border-theme-accent/25`}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                style={{ 
+                  width: layout.width, 
+                  marginLeft: layout.marginLeft 
+                }}
+                className="relative group overflow-hidden rounded-full cursor-pointer h-24 sm:h-32 md:h-40 lg:h-48 border border-theme-accent/50 shadow-xl"
                 onClick={() => setSelectedImage(img.url)}
               >
                 <img
                   src={img.url}
                   alt={img.caption}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   loading="lazy"
                 />
+                
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-theme-bg/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-[2px]">
-                   <ZoomIn className="text-theme-accent w-6 h-6 mb-3 opacity-80" />
-                   <span className="text-theme-accent font-serif tracking-[0.2em] uppercase text-[10px] md:text-xs text-center border border-theme-accent/20 px-4 py-2 rounded-full">{img.caption}</span>
+                <div className="absolute inset-0 bg-theme-bg/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 backdrop-blur-[2px]">
+                   <ZoomIn className="text-theme-accent w-6 h-6 mb-2 opacity-80" />
+                   <span className="text-theme-accent font-nav tracking-widest uppercase text-[10px] md:text-xs text-center px-4 py-2 opacity-90">
+                     {img.caption}
+                   </span>
                 </div>
               </motion.div>
             );

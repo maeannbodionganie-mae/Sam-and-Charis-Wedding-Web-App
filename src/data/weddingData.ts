@@ -57,7 +57,7 @@ export const weddingData = {
       title: "Intentional Pursuit",
       text: "After much prayer, confirmation, and Godly counsel, Sam intentionally pursued Cha with clarity and purpose. Before taking this step, he sought the blessing and guidance of family, friends, and spiritual mentors.",
       icon: "Footprints",
-      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147311/WhatsApp_Image_2026-06-10_at_7.19.21_PM_k6alig.jpg",
+      image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147320/IMG_1545_yerpht.jpg",
     },
     {
       date: "December 25, 2024",
@@ -97,38 +97,49 @@ export const weddingData = {
     { url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600&auto=format&fit=crop", caption: "A Promise of Forever" }
   ],
   entourage: {
-    parentsOfBride: ["Mr. Edgardo Soto & Mrs. Ma. Socorro Soto"],
-    parentsOfGroom: ["Ms. Belinda Flores"],
-    principalSponsors: [
-      { role: "Ninong", names: ["Ptr. Robert Parcasio", "Mr. Christian Balang", "Mr. Romy Villahermosa", "Mr. Jerwin Soto", "Mr. Dennis Soto"] },
-      { role: "Ninang", names: ["Mrs. Myrna Parcasio", "Mrs. Ruth Ann Pilar Balang", "Mrs. Emmie Villahermosa", "Mrs. Love Soto", "Mrs. Maribeth Soto", "Mrs. Esmi Vicente"] }
-    ],
-    secondarySponsors: [
-      { role: "Veil Sponsors", names: ["Jhon Rowin Soto & Lady Ann Soto"] },
-      { role: "Cord Sponsors", names: ["Christian Balang & Ruth Ann Balang"] },
-      { role: "Candle Sponsors", names: ["Jhonly Occidental & Nelhem Occidental"] },
-      { role: "Sand Sponsors", names: ["Jerwin Soto & Love Soto"] },
-    ],
-    maidOfHonor: ["Pauline Melissa Vicente"],
-    bestMan: ["Francis Michael Rivera"],
+    parentsOfBride: { mother: "Ma. Socorro Sotto", father: "Edgardo Sotto" },
+    parentsOfGroom: { mother: "Belinda J. Flores", father: "" },
+    principalSponsors: {
+      women: [
+        "Myrna Parcasio",
+        "Ruth Ann Pilar Balang",
+        "Emilie Villahermosa",
+        "Esmeralda R. Vicente"
+      ],
+      men: [
+        "Ptr. Roberto Parcasio",
+        "Christian Balang",
+        "Romy Villahermosa",
+        ""
+      ]
+    },
+    secondarySponsors: {
+      veil: { woman: "Lady Ann Sotto", man: "Jhon Rowin Sotto" },
+      cord: { woman: "Ruth Ann Pilar Balang", man: "Christian Balang" },
+      candle: { woman: "Nelbem S. Occidental", man: "Jhonly Occidental" },
+      sand: { woman: "Myrna Parcasio", man: "Ptr. Roberto Parcasio" },
+    },
+    maidOfHonor: "Pauline Melissa Vicente",
+    bestMan: "Francis Michael Rivera",
     bridesmaids: [
-      "Nelben Occidental",
+      "Nelbem Occidental",
       "Mae Ann Bodiongan",
+      "Aizel Saguindang",
       "Meir Jhelyn Palangan",
-      "Aizel Saguidang",
-      "Queen Lane Gamorot"
+      "Queenie Lane Gamorot"
     ],
     groomsmen: [
       "Jhonly Occidental",
       "Rexter Laurel",
-      "Wendyl Balog"
+      "Wendyl Balog",
+      "",
+      ""
     ],
-    flowerGirls: [],
-    bearers: [
-      { role: "Bible Bearer", name: "Ricky Flores" },
-      { role: "Coin Bearer", name: "Herald Soto" },
-      { role: "Ring Bearer", name: "Erick Vincent Soto" }
-    ]
+    bearers: {
+      bible: "Ricky Flores",
+      coin: "Herald Sotto",
+      ring: "Rexter Laurel"
+    }
   },
   faqs: [
     {

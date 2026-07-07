@@ -7,7 +7,7 @@ interface RSVPProps {
 
 export default function RSVP({ onOpenRSVP }: RSVPProps) {
   return (
-    <section id="rsvp" className="bg-theme-bg py-32 px-4 sm:px-6 relative">
+    <section id="rsvp" className="bg-theme-bg py-16 md:py-20 px-4 sm:px-6 relative">
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <SectionHeader title="Will you join us?" />
         
