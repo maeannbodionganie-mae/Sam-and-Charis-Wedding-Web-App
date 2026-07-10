@@ -1,90 +1,108 @@
 import { motion } from 'motion/react';
-import SectionHeader from './SectionHeader';
+
+const colors = [
+  { name: 'Deep Sage', hex: '#819b6e' },
+  { name: 'Muted Moss', hex: '#8a9461' },
+  { name: 'Light Sage', hex: '#b5c689' },
+  { name: 'Butter Yellow', hex: '#fef5ce' }
+];
 
 export default function AttireGuide() {
-  const colors = [
-    { name: 'Deep Sage', hex: '#8d9e65' },
-    { name: 'Muted Moss', hex: '#8a8b57' },
-    { name: 'Light Sage', hex: '#bac276' },
-    { name: 'Butter Yellow', hex: '#fff8cc' },
-  ];
-
   return (
-    <section id="attire" className="bg-theme-bg py-16 md:py-20 px-6 md:px-12 relative text-theme-accent">
-      <div className="max-w-5xl mx-auto relative z-10">
-        <SectionHeader subtitle="Dress Code" title="Attire Guide" />
+    <section id="attire" className="bg-theme-bg py-24 px-6 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
+        
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="font-nav text-theme-accent/70 tracking-[0.2em] uppercase text-[10px] md:text-xs mb-4">
+            DRESS CODE
+          </p>
+          <h2 className="font-serif text-5xl md:text-6xl text-theme-accent">
+            Attire Guide
+          </h2>
+          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto mt-6"></div>
+        </motion.div>
 
-        <div className="text-center mb-8 flex flex-col items-center">
-           <h3 className="font-serif text-3xl text-theme-accent mb-2">Guests</h3>
-           <p className="text-theme-accent/80 font-light tracking-wide">Strictly formal attire.</p>
-        </div>
+        {/* Guests Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full mb-32"
+        >
+          <div className="text-center mb-16">
+            <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-2">Guests</h3>
+            <p className="font-serif text-theme-accent/80 text-sm italic">Strictly formal attire.</p>
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16 mb-16">
-          {/* Gentlemen */}
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-4 md:p-8 flex flex-col h-full"
-          >
-            <h3 className="font-serif text-2xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-6">For Gentlemen</h3>
-            <p className="text-theme-accent/80 font-light text-sm leading-relaxed flex-grow">
-              Black suit with a sage green necktie.
-            </p>
-             <div className="mt-8 flex justify-center overflow-hidden rounded-xl h-[500px]">
+          <div className="flex flex-col md:flex-row gap-16 md:gap-8 justify-between">
+            {/* Gentlemen */}
+            <div className="w-full md:w-1/2 flex flex-col">
+              <h4 className="font-serif text-2xl text-theme-accent mb-4">For Gentlemen</h4>
+              <div className="w-full h-[1px] bg-theme-accent/30 mb-4"></div>
+              <p className="font-sans text-xs text-theme-accent/80 mb-12">
+                Black suit with a sage green necktie.
+              </p>
+              <div className="flex justify-center mt-auto">
                 <img 
                   src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_men_s_attire_ntusfe.png" 
-                  alt="Gentlemen Attire Reference"
-                  className="w-full h-full object-cover object-center"
+                  alt="Guest Gentlemen Attire"
+                  className="h-[400px] object-contain drop-shadow-xl"
                 />
-             </div>
-          </motion.div>
+              </div>
+            </div>
 
-          {/* Ladies */}
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="p-4 md:p-8 flex flex-col h-full"
-          >
-            <h3 className="font-serif text-2xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-6">For Ladies</h3>
-            <p className="text-theme-accent/80 font-light text-sm leading-relaxed flex-grow">
-              Formal dress in butter yellow or sage green.
-            </p>
-             <div className="mt-8 flex justify-center overflow-hidden rounded-xl h-[500px]">
+            {/* Ladies */}
+            <div className="w-full md:w-1/2 flex flex-col">
+              <h4 className="font-serif text-2xl text-theme-accent mb-4">For Ladies</h4>
+              <div className="w-full h-[1px] bg-theme-accent/30 mb-4"></div>
+              <p className="font-sans text-xs text-theme-accent/80 mb-12">
+                Formal dress in butter yellow or sage green.
+              </p>
+              <div className="flex justify-center mt-auto">
                 <img 
                   src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_women_s_attire_1_n6tibx.png" 
-                  alt="Ladies Attire Reference"
-                  className="w-full h-full object-cover object-center scale-[1.7] origin-[50%_65%]"
+                  alt="Guest Ladies Attire"
+                  className="h-[400px] object-contain drop-shadow-xl"
                 />
-             </div>
-          </motion.div>
-        </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Principal Sponsors */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-4 md:p-12 flex flex-col items-center mb-16"
+          className="w-full mb-32 flex flex-col items-center"
         >
-          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Principal Sponsors</h3>
-          
-          <div className="grid md:grid-cols-2 gap-8 w-full mb-10 max-w-3xl">
-            <div className="text-center md:text-right md:border-r border-theme-accent/20 md:pr-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">Gentlemen</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Barong Tagalog with black pants and black shoes.</p>
-            </div>
-            <div className="text-center md:text-left md:pl-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">Ladies</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Sage green dress with butterfly sleeves.</p>
+          <div className="text-center w-full max-w-4xl mb-12">
+            <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6">Principal Sponsors</h3>
+            <div className="w-full h-[1px] bg-theme-accent/30 mb-8"></div>
+            
+            <div className="flex items-start justify-center gap-8 md:gap-16">
+              <div className="text-right flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Gentlemen</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Barong Tagalog with black pants and black shoes.</p>
+              </div>
+              <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
+              <div className="text-left flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Ladies</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Sage green dress with butterfly sleeves.</p>
+              </div>
             </div>
           </div>
 
           <img 
             src="https://res.cloudinary.com/dfpei7360/image/upload/v1781527044/Ninong_Ninang_Attire_yfip5u.png" 
             alt="Principal Sponsors Attire"
-            className="w-full max-w-2xl object-cover"
+            className="h-[500px] object-contain drop-shadow-xl"
           />
         </motion.div>
 
@@ -93,87 +111,54 @@ export default function AttireGuide() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-4 md:p-12 flex flex-col items-center mb-16"
+          className="w-full mb-32 flex flex-col items-center"
         >
-          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Secondary Sponsors</h3>
-          
-          <div className="grid md:grid-cols-2 gap-8 w-full mb-10 max-w-3xl">
-            <div className="text-center md:text-right md:border-r border-theme-accent/20 md:pr-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">Gentlemen</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Barong Tagalog with black pants and black shoes.</p>
-            </div>
-            <div className="text-center md:text-left md:pl-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">Ladies</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Sage green dress.</p>
+          <div className="text-center w-full max-w-4xl mb-12">
+            <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6">Secondary Sponsors</h3>
+            <div className="w-full h-[1px] bg-theme-accent/30 mb-8"></div>
+            
+            <div className="flex items-start justify-center gap-8 md:gap-16">
+              <div className="text-right flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Gentlemen</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Barong Tagalog with black pants and black shoes.</p>
+              </div>
+              <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
+              <div className="text-left flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Ladies</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Sage green dress.</p>
+              </div>
             </div>
           </div>
 
           <img 
             src="https://res.cloudinary.com/zjjivspl/image/upload/v1783147299/Secondary_Sponsor_izhvty.png" 
             alt="Secondary Sponsors Attire"
-            className="w-full max-w-2xl object-cover"
+            className="h-[600px] object-contain drop-shadow-xl"
           />
         </motion.div>
 
-        {/* Team Groom & Team Bride */}
+        {/* Color Palette */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-4 md:p-12 flex flex-col items-center mb-16"
+          className="w-full flex flex-col items-center mb-16"
         >
-          <h3 className="font-serif text-3xl text-theme-accent border-b border-theme-accent/20 pb-4 mb-10 w-full text-center">Team Groom & Team Bride</h3>
+          <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-8">Color Palette</h3>
+          <div className="w-16 h-[1px] bg-theme-accent/30 mb-16"></div>
           
-          <div className="grid md:grid-cols-2 gap-8 w-full max-w-3xl">
-            <div className="text-center md:text-right md:border-r border-theme-accent/20 md:pr-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">His</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Sage green suit</p>
-            </div>
-            <div className="text-center md:text-left md:pl-8">
-              <h4 className="font-serif text-xl text-theme-accent mb-2">Her</h4>
-              <p className="text-theme-accent/80 font-light text-sm">Butter yellow floor-length dress</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Color Palette Display */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="p-4 md:p-12 flex flex-col items-center text-center"
-        >
-          <h3 className="font-serif text-3xl text-theme-accent pb-4 mb-4">Color Palette</h3>
-          <div className="w-16 h-[1px] bg-theme-accent/30 mx-auto mb-10"></div>
-          
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-16">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
             {colors.map((color, idx) => (
-              <div key={idx} className="flex flex-col items-center group">
+              <div key={idx} className="flex flex-col items-center">
                 <div 
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full mb-4 shadow-md transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg border border-theme-accent/20"
+                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 shadow-lg border border-white/10"
                   style={{ backgroundColor: color.hex }}
                 ></div>
-                <span className="text-xs text-theme-accent uppercase tracking-widest font-light max-w-[100px] text-center leading-relaxed">
+                <span className="font-serif text-xs md:text-sm text-theme-accent uppercase tracking-widest text-center w-24">
                   {color.name}
                 </span>
               </div>
             ))}
-          </div>
-          
-          {/* Dress Code Reminder */}
-          <div className="max-w-3xl w-full border-t border-theme-accent/20 pt-12">
-            <h4 className="font-serif text-2xl text-theme-accent mb-6">Dress Code Reminder</h4>
-            <div className="space-y-4 text-theme-accent/80 font-light text-sm leading-relaxed max-w-2xl mx-auto text-justify">
-              <p>
-                We kindly request all guests to honor the dress code by avoiding overly casual attire such as polo shirts, slippers, denim, and jeans. Please avoid mini dresses.
-              </p>
-              <p>
-                Please adhere to the specified dress code and color motif. Dressing accordingly is deeply appreciated, as it will contribute to the elegance and harmony of our celebration.
-              </p>
-              <p>
-                We look forward to seeing you in your finest attire that complements our chosen theme.
-              </p>
-            </div>
           </div>
         </motion.div>
 

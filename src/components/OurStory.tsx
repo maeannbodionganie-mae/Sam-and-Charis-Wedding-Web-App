@@ -59,11 +59,11 @@ export default function OurStory() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, margin: "-50px" }}
                       transition={{ duration: 0.8, ease: "easeOut" }}
-                      className={`absolute top-0 w-[85%] aspect-[4/3] md:aspect-[4/3] ${isEven ? 'left-4 md:left-12' : 'right-4 md:right-12'} -translate-y-4 md:-translate-y-6 border border-theme-accent/30 z-0`}
+                      className={`absolute top-0 bottom-0 w-[85%] ${isEven ? 'left-4 md:left-12' : 'right-4 md:right-12'} -translate-y-4 md:-translate-y-6 border border-theme-accent/30 z-0`}
                     />
                     
                     {/* Image */}
-                    <div className="relative w-[85%] aspect-[4/3] md:aspect-[4/3] z-10">
+                    <div className="relative w-[85%] z-10">
                        <motion.img 
                          initial={{ opacity: 0, scale: 0.95 }}
                          whileInView={{ opacity: 1, scale: 1 }}
@@ -71,7 +71,7 @@ export default function OurStory() {
                          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                          src={(item as any).image} 
                          alt={item.title} 
-                         className="absolute inset-0 w-full h-full object-cover shadow-2xl shadow-black/20" 
+                         className="w-full h-auto object-contain shadow-2xl shadow-black/20"
                        />
                     </div>
                   </div>

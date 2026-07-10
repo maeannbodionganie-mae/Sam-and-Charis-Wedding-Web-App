@@ -20,7 +20,7 @@ export const weddingData = {
     {
       date: "April 24, 2024",
       title: "First Encounter",
-      text: "A spare ticket, a shared row, and a ride home with spiritual family. What seemed like an ordinary evening became the first chapter of a story God was faithfully writing.",
+      text: "Matt Redman Concert. A spare ticket, a shared row, and a ride home with spiritual family. What seemed like an ordinary evening became the first chapter of a story God was faithfully writing.",
       icon: "Music",
       image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147309/WhatsApp_Image_2026-06-09_at_11.23.21_PM_riiapw.jpg"
     },

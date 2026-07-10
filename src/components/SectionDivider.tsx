@@ -7,7 +7,7 @@ interface SectionDividerProps {
 
 export default function SectionDivider({ id, withLogo = false }: SectionDividerProps) {
   return (
-    <div id={id} className="relative w-full flex flex-col items-center justify-center py-8 md:py-12 bg-theme-bg overflow-hidden select-none">
+    <div id={id} className="relative w-full flex flex-col items-center justify-center py-8 md:py-12 overflow-hidden select-none">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

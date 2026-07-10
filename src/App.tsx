@@ -37,8 +37,6 @@ export default function App() {
           <Navbar onOpenRSVP={() => setIsRSVPOpen(true)} />
           <Hero onOpenRSVP={() => setIsRSVPOpen(true)} />
           <WelcomeMessage />
-          
-          <SectionDivider withLogo={true} />
           <WeddingDetails />
           
           <SectionDivider />

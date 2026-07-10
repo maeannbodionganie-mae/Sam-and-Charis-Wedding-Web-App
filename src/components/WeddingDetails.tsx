@@ -24,17 +24,17 @@ export default function WeddingDetails() {
   };
 
   return (
-    <section id="details" className="relative w-full min-h-[100dvh] bg-theme-bg overflow-hidden flex flex-col md:flex-row">
-      {/* Background layer for left side - heavily blurred */}
+    <section id="details" className="relative w-full min-h-[100dvh] bg-theme-bg overflow-hidden flex flex-col">
+      {/* Background layer - heavily blurred */}
       <div className="absolute inset-0 z-0 flex w-full">
-         <div className="w-full md:w-1/2 h-full relative overflow-hidden bg-theme-bg">
+         <div className="w-full h-full relative overflow-hidden bg-theme-bg">
             <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-70 filter blur-2xl scale-110" />
             <div className="absolute inset-0 bg-theme-bg/40 mix-blend-multiply" />
          </div>
       </div>
 
-      {/* Left Content Side */}
-      <div className="relative z-10 w-full md:w-1/2 min-h-screen md:min-h-0 flex flex-col justify-between p-8 md:p-12 lg:p-20 text-theme-accent">
+      {/* Content Side */}
+      <div className="relative z-10 w-full min-h-screen md:min-h-0 flex flex-col justify-between p-8 md:p-12 lg:p-20 text-theme-accent">
          
          <motion.div 
            initial={{ opacity: 0, y: 20 }}
@@ -92,21 +92,6 @@ export default function WeddingDetails() {
              </button>
            </div>
          </motion.div>
-      </div>
-
-      {/* Right Image Side */}
-      <div className="relative w-full md:w-1/2 h-[50vh] md:h-auto min-h-screen z-10 shadow-[-20px_0_40px_rgba(0,0,0,0.1)] overflow-hidden">
-         <motion.img 
-            initial={{ scale: 1.1, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            src={bgImage} 
-            alt="Savanna Farm Tagaytay" 
-            className="absolute inset-0 w-full h-full object-cover" 
-         />
-         {/* Subtle overlay on the right image for better contrast with potential text */}
-         <div className="absolute inset-0 bg-theme-bg/10 mix-blend-multiply" />
       </div>
     </section>
   );
