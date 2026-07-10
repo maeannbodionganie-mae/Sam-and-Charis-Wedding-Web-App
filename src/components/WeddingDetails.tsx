@@ -58,8 +58,8 @@ export default function WeddingDetails() {
              SAVANNA
            </h2>
            <h2 
-             className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] font-bold uppercase leading-[0.9] tracking-tight text-transparent bg-clip-text bg-cover bg-center"
-             style={{ backgroundImage: `url(${bgImage})` }}
+             className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-theme-accent leading-[0.9]"
+             
            >
              FARM
            </h2>

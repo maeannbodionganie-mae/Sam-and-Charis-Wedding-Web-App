@@ -14,18 +14,32 @@ export default function Entourage() {
           <div className="text-center font-nav uppercase tracking-[0.2em] text-[10px] text-theme-accent/60">{rightTitle}</div>
         </div>
         <div className="space-y-3">
-          {pairs.map((pair: string[], idx: number) => (
-            <div key={idx} className="grid grid-cols-2 gap-x-4 md:gap-x-12">
-              <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem]">
-                {leftRole && pair[0] && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{leftRole[idx] || leftRole}</span>}
-                <span className="font-sans text-theme-accent text-sm md:text-base">{pair[0] || "-"}</span>
+          {pairs.map((pair: string[], idx: number) => {
+            const hasLeft = !!pair[0];
+            const hasRight = !!pair[1];
+            if (!hasLeft && !hasRight) return null;
+
+            return (
+              <div key={idx} className="grid grid-cols-2 gap-x-4 md:gap-x-12">
+                {hasLeft ? (
+                  <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
+                    {leftRole && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{leftRole[idx] || leftRole}</span>}
+                    <span className="font-sans text-theme-accent text-sm md:text-base">{pair[0]}</span>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
+                {hasRight ? (
+                  <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
+                    {rightRole && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{rightRole[idx] || rightRole}</span>}
+                    <span className="font-sans text-theme-accent text-sm md:text-base">{pair[1]}</span>
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
-              <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem]">
-                {rightRole && pair[1] && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{rightRole[idx] || rightRole}</span>}
-                <span className="font-sans text-theme-accent text-sm md:text-base">{pair[1] || "-"}</span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
@@ -73,34 +87,34 @@ export default function Entourage() {
           {/* Parents */}
           <PairList 
             title="Parents" 
-            leftTitle="Mother"
-            rightTitle="Father"
+            leftTitle="Father"
+            rightTitle="Mother"
             pairs={[
-              [entourage.parentsOfBride.mother, entourage.parentsOfBride.father],
-              [entourage.parentsOfGroom.mother, entourage.parentsOfGroom.father]
+              [entourage.parentsOfBride.father, entourage.parentsOfBride.mother],
+              [entourage.parentsOfGroom.father, entourage.parentsOfGroom.mother]
             ]}
-            leftRole={["Mother of the Bride", "Mother of the Groom"]}
-            rightRole={["Father of the Bride", "Father of the Groom"]}
+            leftRole={["Father of the Bride", "Father of the Groom"]}
+            rightRole={["Mother of the Bride", "Mother of the Groom"]}
           />
 
           {/* Principal Sponsors */}
           <PairList 
             title="Principal Sponsors" 
-            leftTitle="Ninang"
-            rightTitle="Ninong"
-            pairs={padPairs(entourage.principalSponsors.women, entourage.principalSponsors.men)}
+            leftTitle="Ninong"
+            rightTitle="Ninang"
+            pairs={padPairs(entourage.principalSponsors.men, entourage.principalSponsors.women)}
           />
 
           {/* Secondary Sponsors */}
           <PairList 
             title="Secondary Sponsors" 
-            leftTitle="Women"
-            rightTitle="Men"
+            leftTitle="Men"
+            rightTitle="Women"
             pairs={[
-              [entourage.secondarySponsors.veil.woman, entourage.secondarySponsors.veil.man],
-              [entourage.secondarySponsors.cord.woman, entourage.secondarySponsors.cord.man],
-              [entourage.secondarySponsors.candle.woman, entourage.secondarySponsors.candle.man],
-              [entourage.secondarySponsors.sand.woman, entourage.secondarySponsors.sand.man]
+              [entourage.secondarySponsors.veil.man, entourage.secondarySponsors.veil.woman],
+              [entourage.secondarySponsors.cord.man, entourage.secondarySponsors.cord.woman],
+              [entourage.secondarySponsors.candle.man, entourage.secondarySponsors.candle.woman],
+              [entourage.secondarySponsors.sand.man, entourage.secondarySponsors.sand.woman]
             ]}
             leftRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor", "Sand Sponsor"]}
             rightRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor", "Sand Sponsor"]}
@@ -125,21 +139,48 @@ export default function Entourage() {
 
           {/* Best Man / Maid of Honor */}
           <PairList 
-            title="Maid of Honor & Best Man" 
-            leftTitle="Maid of Honor"
-            rightTitle="Best Man"
+            title="Best Man & Maid of Honor" 
+            leftTitle="Best Man"
+            rightTitle="Maid of Honor"
             pairs={[
-              [entourage.maidOfHonor, entourage.bestMan]
+              [entourage.bestMan, entourage.maidOfHonor]
             ]}
           />
 
           {/* Bridesmaids & Groomsmen */}
-          <PairList 
-            title="Bridesmaids & Groomsmen" 
-            leftTitle="Bridesmaid"
-            rightTitle="Groomsman"
-            pairs={padPairs(entourage.bridesmaids, entourage.groomsmen)}
-          />
+          <div className="mb-16">
+            <h3 className="font-serif text-2xl md:text-3xl tracking-widest text-theme-accent text-center mb-8">Bridesmaids & Groomsmen</h3>
+            
+            <div className="max-w-md mx-auto space-y-12">
+              {/* Bridesmaids */}
+              <div>
+                <h4 className="font-serif text-xl text-theme-accent text-center mb-3">Bridesmaids</h4>
+                <div className="w-full h-[1px] bg-theme-accent/20 mb-4"></div>
+                <div className="space-y-3">
+                  {entourage.bridesmaids.filter(Boolean).map((name, idx) => (
+                    <div key={idx} className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 min-h-[4rem] flex flex-col items-center justify-center">
+                      <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">Bridesmaid</span>
+                      <span className="font-sans text-theme-accent text-sm md:text-base">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Groomsmen */}
+              <div>
+                <h4 className="font-serif text-xl text-theme-accent text-center mb-3">Groomsmen</h4>
+                <div className="w-full h-[1px] bg-theme-accent/20 mb-4"></div>
+                <div className="space-y-3">
+                  {entourage.groomsmen.filter(Boolean).map((name, idx) => (
+                    <div key={idx} className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 min-h-[4rem] flex flex-col items-center justify-center">
+                      <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">Groomsman</span>
+                      <span className="font-sans text-theme-accent text-sm md:text-base">{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
           
         </motion.div>
       </div>

@@ -33,45 +33,37 @@ export default function AttireGuide() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="w-full mb-32"
+          className="w-full mb-32 flex flex-col items-center"
         >
-          <div className="text-center mb-16">
+          <div className="text-center w-full max-w-4xl mb-12">
             <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-2">Guests</h3>
-            <p className="font-serif text-theme-accent/80 text-sm italic">Strictly formal attire.</p>
+            <p className="font-serif text-theme-accent/80 text-sm italic mb-6">Strictly formal attire.</p>
+            <div className="w-full h-[1px] bg-theme-accent/30 mb-8"></div>
+            
+            <div className="flex items-start justify-center gap-8 md:gap-16">
+              <div className="text-right flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">For Gentlemen</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Black suit with a sage green necktie.</p>
+              </div>
+              <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
+              <div className="text-left flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">For Ladies</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Formal dress in butter yellow or sage green.</p>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-16 md:gap-8 justify-between">
-            {/* Gentlemen */}
-            <div className="w-full md:w-1/2 flex flex-col">
-              <h4 className="font-serif text-2xl text-theme-accent mb-4">For Gentlemen</h4>
-              <div className="w-full h-[1px] bg-theme-accent/30 mb-4"></div>
-              <p className="font-sans text-xs text-theme-accent/80 mb-12">
-                Black suit with a sage green necktie.
-              </p>
-              <div className="flex justify-center mt-auto">
-                <img 
-                  src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_men_s_attire_ntusfe.png" 
-                  alt="Guest Gentlemen Attire"
-                  className="h-[400px] object-contain drop-shadow-xl"
-                />
-              </div>
-            </div>
-
-            {/* Ladies */}
-            <div className="w-full md:w-1/2 flex flex-col">
-              <h4 className="font-serif text-2xl text-theme-accent mb-4">For Ladies</h4>
-              <div className="w-full h-[1px] bg-theme-accent/30 mb-4"></div>
-              <p className="font-sans text-xs text-theme-accent/80 mb-12">
-                Formal dress in butter yellow or sage green.
-              </p>
-              <div className="flex justify-center mt-auto">
-                <img 
-                  src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_women_s_attire_1_n6tibx.png" 
-                  alt="Guest Ladies Attire"
-                  className="h-[400px] object-contain drop-shadow-xl"
-                />
-              </div>
-            </div>
+          <div className="flex flex-row items-end justify-center gap-4 md:gap-12 max-w-3xl">
+            <img 
+              src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_men_s_attire_ntusfe.png" 
+              alt="Guest Gentlemen Attire"
+              className="h-[400px] object-contain drop-shadow-xl"
+            />
+            <img 
+              src="https://res.cloudinary.com/zjjivspl/image/upload/v1783696064/Girls_1_dewjzq.png" 
+              alt="Guest Ladies Attire"
+              className="h-[400px] object-contain drop-shadow-xl"
+            />
           </div>
         </motion.div>
 
@@ -131,8 +123,39 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783692511/Team_Groom_Bride_btaxxe.png" 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783693072/Secondary_Sponsor_1_xkkqol.png" 
             alt="Secondary Sponsors Attire"
+            className="h-[600px] object-contain drop-shadow-xl"
+          />
+        </motion.div>
+
+        {/* Team Groom & Team Bride */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="w-full mb-32 flex flex-col items-center"
+        >
+          <div className="text-center w-full max-w-4xl mb-12">
+            <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-6">Team Groom & Team Bride</h3>
+            <div className="w-full h-[1px] bg-theme-accent/30 mb-8"></div>
+            
+            <div className="flex items-start justify-center gap-8 md:gap-16">
+              <div className="text-right flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Team Groom</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Sage green suit with white shirt.</p>
+              </div>
+              <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
+              <div className="text-left flex-1">
+                <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Team Bride</h4>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Butter yellow dress.</p>
+              </div>
+            </div>
+          </div>
+
+          <img 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783692511/Team_Groom_Bride_btaxxe.png" 
+            alt="Team Groom and Team Bride Attire"
             className="h-[600px] object-contain drop-shadow-xl"
           />
         </motion.div>
