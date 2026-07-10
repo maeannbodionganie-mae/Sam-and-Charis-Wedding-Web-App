@@ -6,8 +6,21 @@ interface RSVPProps {
 }
 
 export default function RSVP({ onOpenRSVP }: RSVPProps) {
+  const bgImage = "https://res.cloudinary.com/zjjivspl/image/upload/v1783455591/cce3c53ceea12261e1959f24cd7857a9_lijspn.jpg";
+
   return (
-    <section id="rsvp" className="bg-theme-bg py-16 md:py-20 px-4 sm:px-6 relative">
+    <section id="rsvp" className="bg-theme-bg py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">
+      {/* Background Image with overlays for high-contrast typography legibility */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={bgImage} 
+          alt="RSVP Background" 
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-theme-bg/40"></div>
+      </div>
+
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <SectionHeader title="Will you join us?" />
         
