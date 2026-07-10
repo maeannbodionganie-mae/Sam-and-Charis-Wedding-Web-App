@@ -30,7 +30,7 @@ export default function GiftGuide() {
                      <span className="font-medium text-theme-accent italic text-xs">Details upon request</span>
                    </div>
                    
-                   <div className="flex flex-col items-center border-b border-theme-accent/10 pb-6">
+                   <div className="flex flex-col items-center pb-2">
                      <span className="text-theme-accent/80 tracking-wide uppercase text-xs font-semibold mb-2">GCash</span>
                      <span className="font-medium text-theme-accent/80 text-xs mb-6">Scan the QR code below</span>
                      <img 
@@ -38,10 +38,6 @@ export default function GiftGuide() {
                        alt="Bank QR Codes" 
                        className="w-full h-auto object-contain rounded-md"
                      />
-                   </div>
-
-                   <div className="mt-8 pt-2">
-                      <p className="text-[10px] uppercase tracking-widest text-theme-accent/60 leading-relaxed max-w-[200px] mx-auto">There will also be a designated blessing box at the reception venue.</p>
                    </div>
                 </div>
             </div>

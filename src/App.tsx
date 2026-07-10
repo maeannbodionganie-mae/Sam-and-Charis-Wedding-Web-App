@@ -63,7 +63,6 @@ export default function App() {
           <SectionDivider withLogo={true} />
           <RSVP onOpenRSVP={() => setIsRSVPOpen(true)} />
           
-          <SectionDivider />
           <Footer />
           <RSVPPage isOpen={isRSVPOpen} onClose={() => setIsRSVPOpen(false)} />
         </>

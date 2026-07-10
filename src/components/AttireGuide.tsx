@@ -100,7 +100,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/dfpei7360/image/upload/v1781527044/Ninong_Ninang_Attire_yfip5u.png" 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783693727/Principal_Sponsor_plulvz.png" 
             alt="Principal Sponsors Attire"
             className="h-[500px] object-contain drop-shadow-xl"
           />
@@ -131,7 +131,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783147299/Secondary_Sponsor_izhvty.png" 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783692511/Team_Groom_Bride_btaxxe.png" 
             alt="Secondary Sponsors Attire"
             className="h-[600px] object-contain drop-shadow-xl"
           />
@@ -147,14 +147,14 @@ export default function AttireGuide() {
           <h3 className="font-serif text-3xl md:text-4xl text-theme-accent mb-8">Color Palette</h3>
           <div className="w-16 h-[1px] bg-theme-accent/30 mb-16"></div>
           
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
+          <div className="flex justify-center gap-3 sm:gap-8 md:gap-16">
             {colors.map((color, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <div 
-                  className="w-24 h-24 md:w-32 md:h-32 rounded-full mb-6 shadow-lg border border-white/10"
+                  className="w-14 h-14 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-full mb-3 sm:mb-6 shadow-lg border border-white/10"
                   style={{ backgroundColor: color.hex }}
                 ></div>
-                <span className="font-serif text-xs md:text-sm text-theme-accent uppercase tracking-widest text-center w-24">
+                <span className="font-serif text-[8px] sm:text-xs md:text-sm text-theme-accent uppercase tracking-widest text-center w-16 sm:w-24 md:w-32">
                   {color.name}
                 </span>
               </div>
