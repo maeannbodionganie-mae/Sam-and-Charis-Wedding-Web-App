@@ -89,12 +89,10 @@ export const weddingData = {
     }
   ],
   gallery: [
-    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/3_ifvktx.jpg", caption: "Balabac Proposal" },
     { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149420/9_bf5eee.jpg", caption: "By Grace Alone" },
     { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783658751/IMG_9207_2_1_aouins.jpg", caption: "Our Journey" },
     { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147300/Screenshot_2026-06-08_at_12.24.28_AM_xnawtl.jpg", caption: "God's Perfect Timing" },
-    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/5_m0kjy0.jpg", caption: "Soon to be Mr. & Mrs." },
-    { url: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=1600&auto=format&fit=crop", caption: "A Promise of Forever" }
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/5_m0kjy0.jpg", caption: "Soon to be Mr. & Mrs." }
   ],
   entourage: {
     parentsOfBride: { mother: "Ma. Socorro Sotto", father: "Edgardo Sotto" },

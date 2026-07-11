@@ -81,12 +81,12 @@ export default function AttireGuide() {
             <div className="flex items-start justify-center gap-8 md:gap-16">
               <div className="text-right flex-1">
                 <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Gentlemen</h4>
-                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Barong Tagalog with black pants and black shoes.</p>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Barong Tagalog with Black Pants.</p>
               </div>
               <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
               <div className="text-left flex-1">
                 <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Ladies</h4>
-                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Sage green dress with butterfly sleeves.</p>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Filipiniana Dress.</p>
               </div>
             </div>
           </div>
@@ -112,12 +112,12 @@ export default function AttireGuide() {
             <div className="flex items-start justify-center gap-8 md:gap-16">
               <div className="text-right flex-1">
                 <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Gentlemen</h4>
-                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Barong Tagalog with black pants and black shoes.</p>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Black Suit with White Polo and Butter Yellow Necktie.</p>
               </div>
               <div className="w-[1px] h-16 bg-theme-accent/30 shrink-0 mt-2"></div>
               <div className="text-left flex-1">
                 <h4 className="font-serif text-xl md:text-2xl text-theme-accent mb-2">Ladies</h4>
-                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Sage green dress.</p>
+                <p className="font-sans text-[10px] md:text-xs text-theme-accent/80">Filipiniana Dress.</p>
               </div>
             </div>
           </div>

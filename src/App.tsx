@@ -10,6 +10,7 @@ import WelcomeMessage from './components/WelcomeMessage';
 import WeddingDetails from './components/WeddingDetails';
 import OurStory from './components/OurStory';
 import Gallery from './components/Gallery';
+import EmptyGallery from './components/EmptyGallery';
 import AttireGuide from './components/AttireGuide';
 import Entourage from './components/Entourage';
 import Venue from './components/Venue';
@@ -44,6 +45,8 @@ export default function App() {
           
           <SectionDivider withLogo={true} />
           <Gallery />
+          
+          <EmptyGallery />
           
           <SectionDivider />
           <AttireGuide />

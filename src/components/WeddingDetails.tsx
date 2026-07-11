@@ -10,7 +10,7 @@ export default function WeddingDetails() {
   const generateGoogleCalendarLink = () => {
     const text = encodeURIComponent("Sam & Charis Wedding");
     const dates = "20260925T070000Z/20260925T140000Z"; 
-    const details = encodeURIComponent("Wedding Ceremony and Reception of Sam & Charis\n\nAttire: Formal/Semi-formal in Sage Green\nEvent Motif: Sage Green");
+    const details = encodeURIComponent("Wedding Ceremony & Reception\nSam & Charis\n\nDress Code: Formal Attire\nColor Motif: Sage Green & Butter Yellow");
     const location = encodeURIComponent(weddingData.location.address);
     return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${text}&dates=${dates}&details=${details}&location=${location}`;
   };

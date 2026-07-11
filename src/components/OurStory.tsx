@@ -24,14 +24,7 @@ export default function OurStory() {
            >
              A Story Written by God
            </motion.h2>
-           <motion.div 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true, delay: 0.2 }}
-             className="max-w-2xl font-sans text-theme-accent/80 text-lg md:text-xl leading-relaxed"
-           >
-             What began with a worship concert became a testimony of God's faithfulness. Every chapter was beautifully written in His perfect timing.
-           </motion.div>
+
         </div>
         
         {/* Timeline */}
@@ -89,7 +82,6 @@ export default function OurStory() {
                          <h3 className="font-nav text-xl md:text-2xl uppercase tracking-[0.15em] text-theme-accent">
                            {item.title}
                          </h3>
-                         <div className="h-[1px] w-12 bg-theme-accent/50 hidden md:block" />
                        </div>
                        
                        <p className="font-sans text-theme-accent/80 text-base md:text-lg leading-relaxed mb-8">

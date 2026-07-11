@@ -59,21 +59,13 @@ export default function Entourage() {
     <section id="entourage" className="bg-theme-bg py-20 md:py-32 px-4 sm:px-6 relative overflow-hidden text-theme-accent">
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="mb-24 text-center">
-           <motion.p 
-             initial={{ opacity: 0, y: 20 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-             className="font-nav text-theme-accent/70 tracking-[0.2em] uppercase text-xs md:text-sm mb-6"
-           >
-             The Entourage
-           </motion.p>
            <motion.h2 
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true, delay: 0.1 }}
              className="font-serif text-4xl md:text-6xl text-theme-accent mb-8"
            >
-             Order of Processional
+             Entourage
            </motion.h2>
         </div>
 

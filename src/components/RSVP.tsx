@@ -6,10 +6,10 @@ interface RSVPProps {
 }
 
 export default function RSVP({ onOpenRSVP }: RSVPProps) {
-  const bgImage = "https://res.cloudinary.com/zjjivspl/image/upload/v1783455591/cce3c53ceea12261e1959f24cd7857a9_lijspn.jpg";
+  const bgImage = "https://res.cloudinary.com/zjjivspl/image/upload/v1783772579/HH_hflehq.jpg";
 
   return (
-    <section id="rsvp" className="bg-theme-bg py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">
+    <section id="rsvp" className="bg-theme-bg min-h-screen flex flex-col items-center justify-center py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">
       {/* Background Image with overlays for high-contrast typography legibility */}
       <div className="absolute inset-0 z-0">
         <img 
