@@ -23,7 +23,7 @@ export default function EmptyGallery() {
       <div className="w-full relative z-10 mt-4">
          <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
            <iframe
-             src="https://www.youtube.com/embed/HD0aFEQlrkA?si=k8eVywH3yXUNvT6g"
+             src="https://www.youtube.com/embed/2nJ7pdNnVQc?si=3PQohOnpFlxoWPWo"
              title="YouTube video player"
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
              referrerPolicy="strict-origin-when-cross-origin"

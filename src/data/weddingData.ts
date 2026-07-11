@@ -101,14 +101,12 @@ export const weddingData = {
       women: [
         "Myrna Parcasio",
         "Ruth Ann Pilar Balang",
-        "Emilie Villahermosa",
-        "Esmeralda R. Vicente"
+        "Emilie Villahermosa"
       ],
       men: [
         "Ptr. Roberto Parcasio",
         "Christian Balang",
-        "Romy Villahermosa",
-        ""
+        "Romy Villahermosa"
       ]
     },
     secondarySponsors: {

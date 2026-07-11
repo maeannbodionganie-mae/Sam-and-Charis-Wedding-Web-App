@@ -53,18 +53,11 @@ export default function AttireGuide() {
             </div>
           </div>
 
-          <div className="flex flex-row items-end justify-center gap-4 md:gap-12 max-w-3xl">
-            <img 
-              src="https://res.cloudinary.com/dfpei7360/image/upload/v1781526913/Guest_men_s_attire_ntusfe.png" 
-              alt="Guest Gentlemen Attire"
-              className="h-[400px] object-contain drop-shadow-xl"
-            />
-            <img 
-              src="https://res.cloudinary.com/zjjivspl/image/upload/v1783696064/Girls_1_dewjzq.png" 
-              alt="Guest Ladies Attire"
-              className="h-[400px] object-contain drop-shadow-xl"
-            />
-          </div>
+          <img 
+            src="https://res.cloudinary.com/zjjivspl/image/upload/v1783773919/Guest_vfz3h6.png" 
+            alt="Guests Attire"
+            className="h-[500px] object-contain drop-shadow-xl"
+          />
         </motion.div>
 
         {/* Principal Sponsors */}
