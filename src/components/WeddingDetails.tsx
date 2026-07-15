@@ -72,9 +72,9 @@ export default function WeddingDetails() {
           className="pb-2 md:pb-4"
         >
           <p className="font-sans text-theme-accent/90 text-sm md:text-base leading-relaxed max-w-sm mb-6 md:mb-8">
-            {weddingData.date.full} at {weddingData.date.time} PHT. We appreciate you to come a little early.
-            <br/><br/>
             {weddingData.location.address}
+            <br/><br/>
+            {weddingData.date.full} at {weddingData.date.time} PHT.
           </p>
           
           <div className="flex flex-wrap gap-4 md:gap-6 items-start sm:items-center">

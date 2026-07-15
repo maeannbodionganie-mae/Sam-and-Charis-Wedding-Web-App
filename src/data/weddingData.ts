@@ -39,7 +39,7 @@ export const weddingData = {
       image: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147303/WhatsApp_Image_2026-06-09_at_9.33.00_PM_1_jzrwcq.jpg"
     },
     {
-      date: "July 30, 2026",
+      date: "July 30, 2024",
       title: "God's Words for Him",
       text: "Through continuous seeking of the Lord, Sam sought God's will before taking a step forward. By His grace, the Lord gave clarity and peace, leading him to lay his intentions with Cha.",
       icon: "Lightbulb",
@@ -89,31 +89,35 @@ export const weddingData = {
     }
   ],
   gallery: [
-    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149420/9_bf5eee.jpg", caption: "By Grace Alone" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149430/7_zqpxjk.jpg", caption: "By Grace Alone" },
     { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783658751/IMG_9207_2_1_aouins.jpg", caption: "Our Journey" },
     { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783147300/Screenshot_2026-06-08_at_12.24.28_AM_xnawtl.jpg", caption: "God's Perfect Timing" },
-    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149464/5_m0kjy0.jpg", caption: "Soon to be Mr. & Mrs." }
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149420/9_bf5eee.jpg", caption: "Soon to be Mr. & Mrs." },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149088/1_dclpli.jpg", caption: "Captured Moments" },
+    { url: "https://res.cloudinary.com/zjjivspl/image/upload/v1783149446/2_qmntfl.jpg", caption: "Captured Moments" }
   ],
   entourage: {
     parentsOfBride: { mother: "Ma. Socorro Sotto", father: "Edgardo Sotto" },
     parentsOfGroom: { mother: "Belinda J. Flores", father: "" },
     principalSponsors: {
       women: [
+        "Capt. Marissa Arlene A. Martinez PN(MNSA)",
         "Myrna Parcasio",
-        "Ruth Ann Pilar Balang",
-        "Emilie Villahermosa"
+        "Emilie D. Villahermosa",
+        "Ruth Ann Pilar Balang"
       ],
       men: [
+        "Capt. Nerelito P. Martinez PN(MNSA)",
         "Ptr. Roberto Parcasio",
-        "Christian Balang",
-        "Romy Villahermosa"
+        "Romulo R. Villahermosa",
+        "Christian Balang"
       ]
     },
     secondarySponsors: {
       veil: { woman: "Lady Ann Sotto", man: "Jhon Rowin Sotto" },
-      cord: { woman: "Ruth Ann Pilar Balang", man: "Christian Balang" },
+      cord: { woman: "Andylyn Ong", man: "Kirk Matthew Ong" },
       candle: { woman: "Nelbem S. Occidental", man: "Jhonly Occidental" },
-      sand: { woman: "Myrna Parcasio", man: "Ptr. Roberto Parcasio" },
+      sand: { woman: "", man: "" },
     },
     maidOfHonor: "Pauline Melissa Vicente",
     bestMan: "Francis Michael Rivera",

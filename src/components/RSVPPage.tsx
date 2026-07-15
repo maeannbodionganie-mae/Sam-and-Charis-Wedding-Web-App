@@ -130,7 +130,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
          return;
       }
       if (!guestNames.trim()) {
-         setError('Please provide the names of all attending guests.');
+         setError('Please provide your nickname.');
          return;
       }
     }
@@ -325,38 +325,15 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                              exit={{ opacity: 0, height: 0 }}
                              className="space-y-6 overflow-hidden"
                           >
-                              {/* Number of Guests */}
+                              {/* Guest Names (Nickname) */}
                               <div>
-                                  <label className="block font-sans text-theme-accent mb-2">Number of Guests Attending <span className="text-sm opacity-60">(Allowed: {guestData.allowedGuests})</span></label>
-                                  <input 
-                                      type="number"
-                                      min="1"
-                                      max={guestData.allowedGuests}
-                                      value={numberOfGuests}
-                                      onChange={(e) => setNumberOfGuests(e.target.value)}
-                                      className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent px-4 py-3 focus:outline-none focus:border-theme-accent font-sans"
-                                  />
-                              </div>
-
-                              {/* Guest Names */}
-                              <div>
-                                  <label className="block font-sans text-theme-accent mb-2">Full Name(s) of Attendee(s)</label>
-                                  <textarea 
-                                      value={guestNames}
-                                      onChange={(e) => setGuestNames(e.target.value)}
-                                      placeholder="List all attending guests here..."
-                                      className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent placeholder:text-theme-accent/30 px-4 py-3 focus:outline-none focus:border-theme-accent font-sans min-h-[80px]"
-                                  />
-                              </div>
-
-                              {/* Meal Preference */}
-                              <div>
-                                  <label className="block font-sans text-theme-accent mb-2">Dietary Restrictions / Meal Preference <span className="opacity-60 text-sm">(Optional)</span></label>
+                                  <label className="block font-sans text-theme-accent mb-2">What's Your Nickname?</label>
                                   <input 
                                       type="text"
-                                      value={mealPreference}
-                                      onChange={(e) => setMealPreference(e.target.value)}
-                                      className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent px-4 py-3 focus:outline-none focus:border-theme-accent font-sans"
+                                      value={guestNames}
+                                      onChange={(e) => setGuestNames(e.target.value)}
+                                      placeholder="Your nickname..."
+                                      className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent placeholder:text-theme-accent/30 px-4 py-3 focus:outline-none focus:border-theme-accent font-sans"
                                   />
                               </div>
                           </motion.div>

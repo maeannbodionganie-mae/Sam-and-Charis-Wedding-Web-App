@@ -105,11 +105,10 @@ export default function Entourage() {
             pairs={[
               [entourage.secondarySponsors.veil.man, entourage.secondarySponsors.veil.woman],
               [entourage.secondarySponsors.cord.man, entourage.secondarySponsors.cord.woman],
-              [entourage.secondarySponsors.candle.man, entourage.secondarySponsors.candle.woman],
-              [entourage.secondarySponsors.sand.man, entourage.secondarySponsors.sand.woman]
+              [entourage.secondarySponsors.candle.man, entourage.secondarySponsors.candle.woman]
             ]}
-            leftRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor", "Sand Sponsor"]}
-            rightRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor", "Sand Sponsor"]}
+            leftRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor"]}
+            rightRole={["Veil Sponsor", "Cord Sponsor", "Candle Sponsor"]}
           />
           
           {/* Bearers */}
