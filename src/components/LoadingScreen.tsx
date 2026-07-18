@@ -27,7 +27,7 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
           {/* Elegant Logo Image */}
           <div className="relative mb-6">
             <img 
-              src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+              src="https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png" 
               alt="Sam & Charis Logo" 
               className="w-48 h-48 object-contain"
             />

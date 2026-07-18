@@ -21,7 +21,7 @@ export default function Footer() {
          {/* Monogram */}
          <div className="mb-6 flex justify-center">
             <img 
-               src="https://res.cloudinary.com/zjjivspl/image/upload/v1783090813/Butter_Yellow_Logo_e6ni3a.png" 
+               src="https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png" 
                alt="Sam & Charis Logo" 
                className="h-36 w-auto object-contain drop-shadow-md"
             />
