@@ -180,7 +180,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col">
+    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-theme-bg shadow-sm">
         <div className="flex items-center justify-between px-6 py-6 sm:px-12">

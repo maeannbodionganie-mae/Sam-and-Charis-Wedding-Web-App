@@ -36,7 +36,7 @@ export default function RSVP({ onOpenRSVP }: RSVPProps) {
            
            <button 
              onClick={onOpenRSVP}
-             className="font-nav tracking-[0.08em] bg-theme-accent hover:bg-theme-accent/90 text-theme-bg px-10 py-4 rounded-sm uppercase font-medium transition-all"
+             className="font-nav tracking-[0.08em] bg-theme-accent hover:bg-theme-accent/90 text-theme-bg px-8 sm:px-10 py-4 rounded-sm uppercase font-medium transition-all w-full sm:w-auto text-sm"
            >
              RSVP to our wedding
            </button>

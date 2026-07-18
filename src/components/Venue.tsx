@@ -81,18 +81,18 @@ export default function Venue() {
                 </div>
              </div>
 
-             <div className="flex flex-wrap gap-4">
+             <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href={location.mapUrl} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-nav tracking-[0.08em] bg-theme-accent hover:bg-theme-accent/80 text-theme-bg px-6 py-3 rounded-full text-sm font-medium uppercase transition-colors"
+                  className="font-nav tracking-[0.08em] text-center bg-theme-accent hover:bg-theme-accent/80 text-theme-bg px-6 py-3 rounded-full text-xs sm:text-sm font-medium uppercase transition-colors w-full sm:w-auto"
                 >
                   Open in Google Maps
                 </a>
                 <button 
                   onClick={handleCopyLink}
-                  className="font-nav tracking-[0.08em] bg-transparent border border-theme-accent text-theme-accent hover:bg-theme-accent/10 px-6 py-3 rounded-full text-sm font-medium uppercase transition-colors"
+                  className="font-nav tracking-[0.08em] text-center bg-transparent border border-theme-accent text-theme-accent hover:bg-theme-accent/10 px-6 py-3 rounded-full text-xs sm:text-sm font-medium uppercase transition-colors w-full sm:w-auto"
                 >
                   {copied ? "Copied!" : "Copy Address"}
                 </button>

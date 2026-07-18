@@ -28,7 +28,7 @@ export default function OurStory() {
         </div>
         
         {/* Timeline */}
-        <div className="relative flex flex-col gap-32 md:gap-48 mt-12 md:mt-24">
+        <div className="relative flex flex-col gap-16 md:gap-48 mt-12 md:mt-24">
           {/* Vertical connecting line */}
           <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-theme-accent/20 transform -translate-x-1/2 z-0"></div>
 
@@ -36,7 +36,7 @@ export default function OurStory() {
              const isEven = index % 2 === 0;
              
              return (
-               <div key={index} className={`flex flex-col md:flex-row items-center gap-16 md:gap-24 w-full relative z-10 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
+               <div key={index} className={`flex flex-col md:flex-row items-center gap-10 md:gap-24 w-full relative z-10 ${!isEven ? 'md:flex-row-reverse' : ''}`}>
                   
                   {/* Center Dot for Timeline (Desktop Only) */}
                   <div className="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-theme-bg border border-theme-accent rounded-full z-20 items-center justify-center">

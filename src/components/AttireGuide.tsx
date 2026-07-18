@@ -56,7 +56,7 @@ export default function AttireGuide() {
           <img 
             src="https://res.cloudinary.com/zjjivspl/image/upload/v1783773919/Guest_vfz3h6.png" 
             alt="Guests Attire"
-            className="h-[500px] object-contain drop-shadow-xl"
+            className="h-64 sm:h-96 md:h-[500px] w-full object-contain drop-shadow-xl"
           />
         </motion.div>
 
@@ -87,7 +87,7 @@ export default function AttireGuide() {
           <img 
             src="https://res.cloudinary.com/zjjivspl/image/upload/v1783693727/Principal_Sponsor_plulvz.png" 
             alt="Principal Sponsors Attire"
-            className="h-[500px] object-contain drop-shadow-xl"
+            className="h-64 sm:h-96 md:h-[500px] w-full object-contain drop-shadow-xl"
           />
         </motion.div>
 
@@ -118,7 +118,7 @@ export default function AttireGuide() {
           <img 
             src="https://res.cloudinary.com/zjjivspl/image/upload/v1783693072/Secondary_Sponsor_1_xkkqol.png" 
             alt="Secondary Sponsors Attire"
-            className="h-[600px] object-contain drop-shadow-xl"
+            className="h-72 sm:h-96 md:h-[600px] w-full object-contain drop-shadow-xl"
           />
         </motion.div>
 
@@ -149,7 +149,7 @@ export default function AttireGuide() {
           <img 
             src="https://res.cloudinary.com/zjjivspl/image/upload/v1783692511/Team_Groom_Bride_btaxxe.png" 
             alt="Team Groom and Team Bride Attire"
-            className="h-[600px] object-contain drop-shadow-xl"
+            className="h-72 sm:h-96 md:h-[600px] w-full object-contain drop-shadow-xl"
           />
         </motion.div>
 

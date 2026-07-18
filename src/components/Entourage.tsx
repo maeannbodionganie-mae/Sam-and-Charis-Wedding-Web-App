@@ -9,33 +9,34 @@ export default function Entourage() {
     <div className="mb-16">
       <h3 className="font-serif text-2xl md:text-3xl tracking-widest text-theme-accent text-center mb-8">{title}</h3>
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-2 gap-x-4 md:gap-x-12 mb-4 border-b border-theme-accent/20 pb-2">
+        <div className="hidden md:grid grid-cols-2 gap-x-12 mb-4 border-b border-theme-accent/20 pb-2">
           <div className="text-center font-nav uppercase tracking-[0.2em] text-[10px] text-theme-accent/60">{leftTitle}</div>
           <div className="text-center font-nav uppercase tracking-[0.2em] text-[10px] text-theme-accent/60">{rightTitle}</div>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-4 md:space-y-3">
           {pairs.map((pair: string[], idx: number) => {
             const hasLeft = !!pair[0];
             const hasRight = !!pair[1];
             if (!hasLeft && !hasRight) return null;
-
             return (
-              <div key={idx} className="grid grid-cols-2 gap-x-4 md:gap-x-12">
+              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-x-12">
                 {hasLeft ? (
-                  <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
-                    {leftRole && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{leftRole[idx] || leftRole}</span>}
+                  <div className="text-center py-4 px-4 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
+                    <span className="md:hidden block font-nav uppercase tracking-[0.2em] text-[9px] text-theme-accent/50 mb-1">{leftRole ? (leftRole[idx] || leftRole) : leftTitle}</span>
+                    {leftRole && <span className="hidden md:block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{leftRole[idx] || leftRole}</span>}
                     <span className="font-sans text-theme-accent text-sm md:text-base">{pair[0]}</span>
                   </div>
                 ) : (
-                  <div></div>
+                  <div className="hidden md:block"></div>
                 )}
                 {hasRight ? (
-                  <div className="text-center py-4 px-2 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
-                    {rightRole && <span className="block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{rightRole[idx] || rightRole}</span>}
+                  <div className="text-center py-4 px-4 bg-theme-accent/5 rounded-lg border border-theme-accent/10 flex flex-col items-center justify-center min-h-[4rem] w-full">
+                    <span className="md:hidden block font-nav uppercase tracking-[0.2em] text-[9px] text-theme-accent/50 mb-1">{rightRole ? (rightRole[idx] || rightRole) : rightTitle}</span>
+                    {rightRole && <span className="hidden md:block font-nav uppercase tracking-[0.2em] text-[8px] text-theme-accent/50 mb-1">{rightRole[idx] || rightRole}</span>}
                     <span className="font-sans text-theme-accent text-sm md:text-base">{pair[1]}</span>
                   </div>
                 ) : (
-                  <div></div>
+                  <div className="hidden md:block"></div>
                 )}
               </div>
             );

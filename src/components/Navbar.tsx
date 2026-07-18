@@ -24,6 +24,17 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
   ];
 
   useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -117,11 +128,11 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'tween', duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-theme-bg flex flex-col pt-20 px-6 pb-6 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-50 bg-theme-bg flex flex-col pt-24 pb-[env(safe-area-inset-bottom,24px)] px-6 md:hidden overflow-y-auto"
           >
             <button
               onClick={() => setMobileMenuOpen(false)}
-              className="absolute top-5 right-5 p-2 text-theme-accent"
+              className="absolute top-[max(1.25rem,env(safe-area-inset-top,1.25rem))] right-5 p-2 text-theme-accent"
               aria-label="Close Menu"
             >
               <X className="w-7 h-7" />
