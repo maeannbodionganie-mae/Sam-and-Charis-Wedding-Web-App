@@ -24,9 +24,9 @@ export default function WeddingDetails() {
   };
 
   return (
-    <section id="details" className="relative w-full min-h-screen bg-theme-bg overflow-hidden flex flex-col md:flex-row">
+    <section id="details" className="relative w-full min-h-[80svh] md:min-h-screen bg-theme-bg overflow-hidden flex flex-col md:flex-row">
       {/* Left side: Content with blurred image background */}
-      <div className="relative w-full md:w-1/2 min-h-screen md:h-screen flex flex-col justify-between p-6 sm:p-8 md:p-10 lg:p-16 text-theme-accent z-10">
+      <div className="relative w-full md:w-1/2 min-h-[80svh] md:h-screen flex flex-col justify-center md:justify-between p-6 sm:p-8 md:p-10 lg:p-16 text-theme-accent z-10 py-24 md:py-16 gap-12 md:gap-0">
         {/* Background layer for left side (blurred bg image for elegant depth) */}
         <div className="absolute inset-0 -z-10 overflow-hidden bg-theme-bg">
           <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50 filter blur-2xl scale-110" />
@@ -48,7 +48,7 @@ export default function WeddingDetails() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, delay: 0.2 }}
-          className="my-8 md:my-0 flex-1 flex flex-col justify-center"
+          className="my-4 md:my-0 md:flex-1 flex flex-col justify-center"
         >
           <span className="font-nav text-theme-accent/90 uppercase tracking-[0.2em] text-[10px] sm:text-xs mb-3 md:mb-4 block font-medium">
             Ceremony & Reception
