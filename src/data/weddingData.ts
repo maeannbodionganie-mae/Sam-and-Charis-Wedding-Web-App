@@ -102,15 +102,15 @@ export const weddingData = {
     principalSponsors: {
       women: [
         "Capt. Marissa Arlene A. Martinez PN(MNSA)",
-        "Myrna Parcasio",
+        "Myrna V. Parcasio",
         "Emilie D. Villahermosa",
-        "Ruth Ann Pilar Balang"
+        "Ruth Ann Pilar D. Balang"
       ],
       men: [
         "Capt. Nerelito P. Martinez PN(MNSA)",
-        "Ptr. Roberto Parcasio",
+        "Ptr. Roberto G. Parcasio",
         "Romulo R. Villahermosa",
-        "Christian Balang"
+        "Christian C. Balang"
       ]
     },
     secondarySponsors: {
