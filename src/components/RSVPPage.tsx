@@ -1,6 +1,6 @@
 import { useState, FormEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar, Search, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { X, Search, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { lookupGuest, submitRSVP, GuestData } from '../lib/rsvpApi';
 
 interface RSVPPageProps {
@@ -33,7 +33,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   const [rsvpStatus, setRsvpStatus] = useState<'Yes' | 'No' | null>(null);
   const [email, setEmail] = useState('');
   const [numberOfGuests, setNumberOfGuests] = useState<string>('1');
-  const [guestNames, setGuestNames] = useState('');
+  const [nickname, setNickname] = useState('');
   const [mealPreference, setMealPreference] = useState('');
   const [message, setMessage] = useState('');
   
@@ -57,7 +57,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
         setRsvpStatus(null);
         setEmail('');
         setNumberOfGuests('1');
-        setGuestNames('');
+        setNickname('');
         setMealPreference('');
         setMessage('');
         setError('');
@@ -129,10 +129,11 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
          setError(`Number of guests must be between 1 and ${guestData.allowedGuests}.`);
          return;
       }
-      if (!guestNames.trim()) {
-         setError('Please provide your nickname.');
-         return;
-      }
+    }
+
+    if (!nickname.trim()) {
+      setError('Please provide your nickname.');
+      return;
     }
 
     if (email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -149,7 +150,8 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
         email: email,
         attendance: rsvpStatus,
         numberOfGuests: rsvpStatus === 'Yes' ? numGuestsInt : 0,
-        guestNames: rsvpStatus === 'Yes' ? guestNames : '',
+        nickname: nickname.trim(),
+        guestNames: nickname.trim(),
         mealPreference,
         message,
     };
@@ -263,7 +265,9 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                    <p className="font-sans text-theme-accent/80 mb-1 text-sm uppercase tracking-widest">Guest corresponding to</p>
                    <h2 className="font-serif text-2xl text-theme-accent mb-4">{guestData.fullName}</h2>
                    <div className="space-y-2 font-sans text-sm text-theme-accent/90">
-                      <p><span className="opacity-60 w-24 inline-block">Invite Code:</span> {guestData.inviteCode}</p>
+                      {guestData.inviteCode ? (
+                        <p><span className="opacity-60 w-24 inline-block">Invite Code:</span> {guestData.inviteCode}</p>
+                      ) : null}
                       <p><span className="opacity-60 w-24 inline-block">Allowed:</span> {guestData.allowedGuests} guest(s)</p>
                       {guestData.rsvpStatus && guestData.rsvpStatus.toLowerCase() === 'responded' ? (
                          <div className="mt-4 p-3 border border-theme-accent/30 bg-theme-accent/10 rounded-sm">
@@ -317,28 +321,18 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                         </div>
                     </div>
 
-                    <AnimatePresence>
-                       {rsvpStatus === 'Yes' && (
-                          <motion.div 
-                             initial={{ opacity: 0, height: 0 }}
-                             animate={{ opacity: 1, height: 'auto' }}
-                             exit={{ opacity: 0, height: 0 }}
-                             className="space-y-6 overflow-hidden"
-                          >
-                              {/* Guest Names (Nickname) */}
-                              <div>
-                                  <label className="block font-sans text-theme-accent mb-2">What's Your Nickname?</label>
-                                  <input 
-                                      type="text"
-                                      value={guestNames}
-                                      onChange={(e) => setGuestNames(e.target.value)}
-                                      placeholder="Your nickname..."
-                                      className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent placeholder:text-theme-accent/30 px-4 py-3 focus:outline-none focus:border-theme-accent font-sans"
-                                  />
-                              </div>
-                          </motion.div>
-                       )}
-                    </AnimatePresence>
+                    {/* Nickname is shown for both accepting and declining guests. */}
+                    <div>
+                        <label className="block font-sans text-theme-accent mb-2">What's Your Nickname?</label>
+                        <input
+                            type="text"
+                            value={nickname}
+                            onChange={(e) => setNickname(e.target.value)}
+                            placeholder="Your nickname..."
+                            required
+                            className="w-full bg-transparent border border-theme-accent/40 rounded-sm text-theme-accent placeholder:text-theme-accent/30 px-4 py-3 focus:outline-none focus:border-theme-accent font-sans"
+                        />
+                    </div>
 
                     {/* Email Address */}
                     <div>

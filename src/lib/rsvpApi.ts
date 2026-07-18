@@ -18,10 +18,8 @@ export interface RSVPPayload {
   email: string;
   attendance: string;
   numberOfGuests: number;
-
-  // Ito ang value mula sa “What’s Your Nickname?” field.
-  guestNames: string;
-
+  nickname?: string;
+  guestNames?: string;
   mealPreference: string;
   message: string;
 }
@@ -29,8 +27,10 @@ export interface RSVPPayload {
 export interface SubmittedGuestData {
   inviteCode?: string;
   fullName: string;
+  nickname?: string;
   email: string;
   attendance: string;
+  submittedAt?: string;
 }
 
 export interface SubmitResponse {
@@ -41,11 +41,8 @@ export interface SubmitResponse {
 
 type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
-/**
- * Current Google Apps Script Web App deployment.
- */
 const GOOGLE_APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbx2NlWUrQizCaY3yjD-8k_yuypeYZsQRLTNXJl7cywopk4s1pKtnJrg0ZvULWdJcVF2/exec';
+  'https://script.google.com/macros/s/AKfycbxov7FXXSJ8PEUEIZNJi5svnzISymrnK_ksefVI-OXZG31kLh6UULFjl5vVtM3gdqZk/exec';
 
 const getErrorMessage = (
   error: unknown,
@@ -58,12 +55,6 @@ const getErrorMessage = (
   return fallbackMessage;
 };
 
-/**
- * Sends a request to the existing Google Apps Script backend.
- *
- * text/plain is intentional to avoid CORS preflight.
- * The body is still sent as JSON and is parsed by doPost().
- */
 const postToAppsScript = async <TResponse>(
   action: AppsScriptAction,
   payload: Record<string, unknown>
@@ -94,9 +85,6 @@ const postToAppsScript = async <TResponse>(
   }
 };
 
-/**
- * Looks up a guest using their name, email, or invite code.
- */
 export const lookupGuest = async (
   query: string
 ): Promise<LookupResponse> => {
@@ -105,17 +93,14 @@ export const lookupGuest = async (
   if (!cleanedQuery) {
     return {
       success: false,
-      message: 'Please enter your name or email address.',
+      message: 'Please enter your name, email, or invite code.',
     };
   }
 
   try {
-    return await postToAppsScript<LookupResponse>(
-      'lookupGuest',
-      {
-        query: cleanedQuery,
-      }
-    );
+    return await postToAppsScript<LookupResponse>('lookupGuest', {
+      query: cleanedQuery,
+    });
   } catch (error: unknown) {
     return {
       success: false,
@@ -127,16 +112,15 @@ export const lookupGuest = async (
   }
 };
 
-/**
- * Submits the RSVP response.
- *
- * Invite code is optional.
- * Attendance is required.
- * guestNames contains the nickname entered on the website.
- */
 export const submitRSVP = async (
   payload: RSVPPayload
 ): Promise<SubmitResponse> => {
+  const nickname = (
+    payload.nickname ||
+    payload.guestNames ||
+    ''
+  ).trim();
+
   const cleanedPayload: Record<string, unknown> = {
     inviteCode: (payload.inviteCode || '').trim(),
     fullName: (payload.fullName || '').trim(),
@@ -144,8 +128,10 @@ export const submitRSVP = async (
     attendance: (payload.attendance || '').trim(),
     numberOfGuests: Number(payload.numberOfGuests) || 0,
 
-    // Send the website nickname to Apps Script.
-    guestNames: (payload.guestNames || '').trim(),
+    // Both keys are sent intentionally so the current and older backends
+    // receive the exact nickname entered on the website.
+    nickname,
+    guestNames: nickname,
 
     mealPreference: (payload.mealPreference || '').trim(),
     message: (payload.message || '').trim(),
@@ -155,6 +141,13 @@ export const submitRSVP = async (
     return {
       success: false,
       message: 'Please choose whether you will attend.',
+    };
+  }
+
+  if (!nickname) {
+    return {
+      success: false,
+      message: 'Please enter your nickname.',
     };
   }
 
