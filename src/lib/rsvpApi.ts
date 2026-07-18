@@ -42,7 +42,7 @@ export interface SubmitResponse {
 type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
 const GOOGLE_APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbxov7FXXSJ8PEUEIZNJi5svnzISymrnK_ksefVI-OXZG31kLh6UULFjl5vVtM3gdqZk/exec';
+  'https://script.google.com/macros/s/AKfycbzuUmcS3-_tnS5RqFQf51llgmQnI9fsGw3qxla_QRKGNUy1i_LSoIQnTzhQGgRcH8U/exec';
 
 const getErrorMessage = (
   error: unknown,
