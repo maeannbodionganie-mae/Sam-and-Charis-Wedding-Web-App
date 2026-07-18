@@ -36,12 +36,13 @@ export interface SubmitResponse {
   guest?: SubmittedGuestData;
 }
 
+/**
+ * Current Google Apps Script Web App deployment.
+ */
 const GOOGLE_APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbx2NlWUrQizCaY3yjD-8k_yuypeYZsQRLTNXJl7cywopk4s1pKtnJrg0ZvULWdJcVF2/exec';
 
-const getUrl = (): string => {
-  return GOOGLE_APPS_SCRIPT_URL;
-};
+type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
 const getErrorMessage = (
   error: unknown,
@@ -54,11 +55,17 @@ const getErrorMessage = (
   return fallbackMessage;
 };
 
+/**
+ * Sends data to the Google Apps Script backend.
+ *
+ * text/plain is intentionally used to avoid a browser CORS preflight.
+ * The request body remains a JSON string and is parsed by doPost().
+ */
 const postToAppsScript = async <TResponse>(
-  action: 'lookupGuest' | 'submitRSVP',
-  payload: object
+  action: AppsScriptAction,
+  payload: Record<string, unknown>
 ): Promise<TResponse> => {
-  const response = await fetch(getUrl(), {
+  const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain;charset=utf-8',
@@ -84,10 +91,13 @@ const postToAppsScript = async <TResponse>(
   }
 };
 
+/**
+ * Looks up an invitation using the guest's name, email, or invite code.
+ */
 export const lookupGuest = async (
   query: string
 ): Promise<LookupResponse> => {
-  const cleanedQuery = query.trim();
+  const cleanedQuery = (query || '').trim();
 
   if (!cleanedQuery) {
     return {
@@ -114,25 +124,36 @@ export const lookupGuest = async (
   }
 };
 
+/**
+ * Submits the guest's RSVP.
+ *
+ * Invite code is optional. Attendance is required.
+ */
 export const submitRSVP = async (
   payload: RSVPPayload
 ): Promise<SubmitResponse> => {
   const cleanedPayload = {
     inviteCode: (payload.inviteCode || '').trim(),
-    fullName: payload.fullName.trim(),
-    email: payload.email.trim(),
-    attendance: payload.attendance.trim(),
+    fullName: (payload.fullName || '').trim(),
+    email: (payload.email || '').trim(),
+    attendance: (payload.attendance || '').trim(),
     numberOfGuests: Number(payload.numberOfGuests) || 0,
-    guestNames: payload.guestNames.trim(),
-    mealPreference: payload.mealPreference.trim(),
-    message: payload.message.trim(),
+    guestNames: (payload.guestNames || '').trim(),
+    mealPreference: (payload.mealPreference || '').trim(),
+    message: (payload.message || '').trim(),
   };
 
-  // Invite Code is intentionally NOT required.
   if (!cleanedPayload.attendance) {
     return {
       success: false,
-      message: 'Please select your attendance response.',
+      message: 'Please choose whether you will attend.',
+    };
+  }
+
+  if (!cleanedPayload.fullName && !cleanedPayload.email) {
+    return {
+      success: false,
+      message: 'Guest name or email address is required.',
     };
   }
 
