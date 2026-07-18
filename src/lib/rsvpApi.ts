@@ -18,7 +18,10 @@ export interface RSVPPayload {
   email: string;
   attendance: string;
   numberOfGuests: number;
+
+  // Ito ang value mula sa “What’s Your Nickname?” field.
   guestNames: string;
+
   mealPreference: string;
   message: string;
 }
@@ -36,13 +39,13 @@ export interface SubmitResponse {
   guest?: SubmittedGuestData;
 }
 
+type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
+
 /**
  * Current Google Apps Script Web App deployment.
  */
 const GOOGLE_APPS_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbx2NlWUrQizCaY3yjD-8k_yuypeYZsQRLTNXJl7cywopk4s1pKtnJrg0ZvULWdJcVF2/exec';
-
-type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
 const getErrorMessage = (
   error: unknown,
@@ -56,10 +59,10 @@ const getErrorMessage = (
 };
 
 /**
- * Sends data to the Google Apps Script backend.
+ * Sends a request to the existing Google Apps Script backend.
  *
- * text/plain is intentionally used to avoid a browser CORS preflight.
- * The request body remains a JSON string and is parsed by doPost().
+ * text/plain is intentional to avoid CORS preflight.
+ * The body is still sent as JSON and is parsed by doPost().
  */
 const postToAppsScript = async <TResponse>(
   action: AppsScriptAction,
@@ -92,7 +95,7 @@ const postToAppsScript = async <TResponse>(
 };
 
 /**
- * Looks up an invitation using the guest's name, email, or invite code.
+ * Looks up a guest using their name, email, or invite code.
  */
 export const lookupGuest = async (
   query: string
@@ -118,27 +121,32 @@ export const lookupGuest = async (
       success: false,
       message: getErrorMessage(
         error,
-        'Error looking up invitation.'
+        'Error looking up your invitation.'
       ),
     };
   }
 };
 
 /**
- * Submits the guest's RSVP.
+ * Submits the RSVP response.
  *
- * Invite code is optional. Attendance is required.
+ * Invite code is optional.
+ * Attendance is required.
+ * guestNames contains the nickname entered on the website.
  */
 export const submitRSVP = async (
   payload: RSVPPayload
 ): Promise<SubmitResponse> => {
-  const cleanedPayload = {
+  const cleanedPayload: Record<string, unknown> = {
     inviteCode: (payload.inviteCode || '').trim(),
     fullName: (payload.fullName || '').trim(),
     email: (payload.email || '').trim(),
     attendance: (payload.attendance || '').trim(),
     numberOfGuests: Number(payload.numberOfGuests) || 0,
+
+    // Send the website nickname to Apps Script.
     guestNames: (payload.guestNames || '').trim(),
+
     mealPreference: (payload.mealPreference || '').trim(),
     message: (payload.message || '').trim(),
   };
