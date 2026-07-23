@@ -64,7 +64,7 @@ export const weddingData = {
       title: "God Said Yes",
       text: "After a season of seeking and waiting, God answered through John 15:11–12. Along with His “yes,” He gave Sam and Cha a calling to remain in His love and reflect it to one another.",
       icon: "Heart",
-      image: "https://res.cloudinary.com/dfpei7360/image/upload/v1781526912/WhatsApp_Image_2026-06-10_at_7.19.21_PM_1_z0cfbm.jpg"
+      image: "https://res.cloudinary.com/h85zozin/image/upload/v1784841405/WhatsApp_Image_2026-06-10_at_7.19.21_PM_k6alig_1_lprdao.jpg"
     },
     {
       date: "August 2, 2025",

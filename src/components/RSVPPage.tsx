@@ -1,7 +1,19 @@
 import { useState, FormEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Search, ArrowRight, CheckCircle2 } from 'lucide-react';
+import {
+  X,
+  Search,
+  ArrowRight,
+  CheckCircle2,
+  CalendarDays,
+  Clock3,
+  MapPin,
+  Mail,
+  Heart,
+  Users,
+} from 'lucide-react';
 import { lookupGuest, submitRSVP, GuestData } from '../lib/rsvpApi';
+import { weddingData } from '../data/weddingData';
 
 interface RSVPPageProps {
   isOpen: boolean;
@@ -11,6 +23,9 @@ interface RSVPPageProps {
 type Step = 'FIND' | 'FOUND' | 'FORM' | 'CONFIRMATION';
 
 const TOTAL_STEPS = 4;
+
+const WEDDING_LOGO =
+  'https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png';
 
 const getStepNumber = (step: Step) => {
   switch (step) {
@@ -207,7 +222,16 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col justify-center max-w-[600px] mx-auto w-full px-6 py-12 sm:py-16">
+      <div
+        className={`
+          mx-auto flex w-full flex-1 flex-col px-5 py-10 sm:px-8 sm:py-16
+          ${
+            currentStep === 'CONFIRMATION'
+              ? 'max-w-[820px] justify-start'
+              : 'max-w-[600px] justify-center'
+          }
+        `}
+      >
         <AnimatePresence mode="wait" custom={direction}>
             
           {/* STEP 1: FIND INVITATION */}
@@ -375,43 +399,233 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
           )}
 
           {/* STEP 4: CONFIRMATION */}
-          {currentStep === 'CONFIRMATION' && (
-              <motion.div
-                key="step4" custom={direction} variants={slideVariants} initial="initial" animate="animate" exit="exit"
-                className="w-full text-center"
-             >
-                <div className="w-16 h-16 rounded-full bg-theme-accent/20 mx-auto mb-8 flex items-center justify-center">
-                   <svg className="w-8 h-8 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+          {currentStep === 'CONFIRMATION' && guestData && rsvpStatus && (
+            <motion.div
+              key="step4"
+              custom={direction}
+              variants={slideVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="w-full"
+            >
+              <div className="mb-10 text-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.7 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+                  className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-theme-accent/30 bg-theme-accent/15"
+                >
+                  <CheckCircle2 className="h-8 w-8 text-theme-accent" strokeWidth={1.5} />
+                </motion.div>
+
+                <p className="mb-3 font-nav text-[10px] font-medium uppercase tracking-[0.3em] text-theme-accent/70 sm:text-xs">
+                  RSVP successfully submitted
+                </p>
+
+                <h1 className="mx-auto max-w-xl font-serif text-4xl leading-tight text-theme-accent sm:text-5xl">
+                  {rsvpStatus === 'Yes'
+                    ? 'We cannot wait to celebrate with you!'
+                    : 'You will be dearly missed.'}
+                </h1>
+
+                <p className="mx-auto mt-5 max-w-lg font-sans text-sm leading-relaxed text-theme-accent/75 sm:text-base">
+                  {rsvpStatus === 'Yes'
+                    ? `Thank you, ${nickname || guestData.fullName}. Your RSVP has been lovingly reserved for our special day.`
+                    : `Thank you, ${nickname || guestData.fullName}, for letting us know. We truly appreciate your response.`}
+                </p>
+
+                {email && (
+                  <div className="mx-auto mt-5 flex max-w-md items-start justify-center gap-2 rounded-sm border border-theme-accent/15 bg-theme-accent/5 px-4 py-3 text-left">
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-theme-accent/70" strokeWidth={1.5} />
+                    <p className="font-sans text-xs leading-relaxed text-theme-accent/70 sm:text-sm">
+                      A confirmation email has been sent to{' '}
+                      <span className="break-all font-medium text-theme-accent">{email}</span>.
+                      Please check your spam or promotions folder if it does not appear in your inbox.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="mb-4 flex items-center gap-4">
+                <span className="h-px flex-1 bg-theme-accent/20" />
+                <p className="whitespace-nowrap font-nav text-[9px] uppercase tracking-[0.22em] text-theme-accent/55 sm:text-[10px]">
+                  Your confirmation preview
+                </p>
+                <span className="h-px flex-1 bg-theme-accent/20" />
+              </div>
+
+              <motion.article
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+                className="relative overflow-hidden border border-theme-accent/35 bg-[#1d382e] px-5 py-8 text-theme-accent shadow-[0_24px_70px_rgba(0,0,0,0.18)] sm:px-10 sm:py-11"
+              >
+                <span aria-hidden="true" className="pointer-events-none absolute left-3 top-3 h-12 w-12 border-l border-t border-theme-accent/25" />
+                <span aria-hidden="true" className="pointer-events-none absolute right-3 top-3 h-12 w-12 border-r border-t border-theme-accent/25" />
+                <span aria-hidden="true" className="pointer-events-none absolute bottom-3 left-3 h-12 w-12 border-b border-l border-theme-accent/25" />
+                <span aria-hidden="true" className="pointer-events-none absolute bottom-3 right-3 h-12 w-12 border-b border-r border-theme-accent/25" />
+
+                <div className="relative text-center">
+                  <p className="font-nav text-[9px] font-semibold uppercase tracking-[0.3em] text-theme-accent/80 sm:text-[10px]">
+                    RSVP Confirmed
+                  </p>
+
+                  <img
+                    src={WEDDING_LOGO}
+                    alt={`${weddingData.couple.names} wedding logo`}
+                    className="mx-auto my-5 h-20 w-20 object-contain sm:h-24 sm:w-24"
+                  />
+
+                  <p className="mx-auto max-w-sm font-serif text-lg leading-relaxed text-theme-accent sm:text-xl">
+                    {rsvpStatus === 'Yes'
+                      ? `Thank you, ${nickname || guestData.fullName}. We are delighted to celebrate with you.`
+                      : `Thank you, ${nickname || guestData.fullName}. We are grateful that you took the time to respond.`}
+                  </p>
+
+                  <div className="mx-auto my-7 h-px max-w-md bg-theme-accent/30" />
                 </div>
 
-                {rsvpStatus === 'Yes' ? (
-                   <>
-                      <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6 leading-tight">Can't wait to celebrate with you!</h1>
-                      <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                         Thank you for confirming your attendance. Your RSVP has been saved, and an email confirmation has been sent to <span className="text-theme-accent">{email}</span>.
-                      </p>
-                   </>
-                ) : (
-                   <>
-                      <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6">You will be missed.</h1>
-                      <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                         Thank you for letting us know. We have recorded your response. A confirmation email has been sent to <span className="text-theme-accent">{email}</span>.
-                      </p>
-                   </>
+                <section aria-labelledby="submitted-rsvp-heading">
+                  <h2 id="submitted-rsvp-heading" className="mb-5 text-center font-nav text-[9px] font-medium uppercase tracking-[0.25em] text-theme-accent/60">
+                    Your RSVP response
+                  </h2>
+
+                  <div className="divide-y divide-theme-accent/15 border-y border-theme-accent/15">
+                    <ConfirmationRow label="Guest" value={guestData.fullName} />
+                    <ConfirmationRow
+                      label="Attendance"
+                      value={rsvpStatus === 'Yes' ? 'Joyfully Accepts' : 'Regretfully Declines'}
+                    />
+                    {rsvpStatus === 'Yes' && (
+                      <ConfirmationRow
+                        label="Reserved Seats"
+                        value={`${numberOfGuests} ${Number(numberOfGuests) === 1 ? 'Guest' : 'Guests'}`}
+                      />
+                    )}
+                    <ConfirmationRow label="Nickname" value={nickname || '—'} />
+                    {message.trim() && (
+                      <ConfirmationRow label="Message" value={message.trim()} multiline />
+                    )}
+                  </div>
+                </section>
+
+                {rsvpStatus === 'Yes' && (
+                  <section aria-labelledby="wedding-details-heading" className="mt-10">
+                    <div className="mb-8 text-center">
+                      <Heart className="mx-auto mb-3 h-5 w-5 text-theme-accent/70" strokeWidth={1.3} />
+                      <h2 id="wedding-details-heading" className="font-serif text-3xl italic text-theme-accent sm:text-4xl">
+                        Wedding Details
+                      </h2>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <WeddingDetailCard
+                        icon={<CalendarDays className="h-5 w-5" />}
+                        label="Date"
+                        value={weddingData.date.full}
+                      />
+                      <WeddingDetailCard
+                        icon={<Clock3 className="h-5 w-5" />}
+                        label="Time"
+                        value={weddingData.date.time}
+                      />
+                      <WeddingDetailCard
+                        icon={<MapPin className="h-5 w-5" />}
+                        label="Venue"
+                        value={weddingData.location.venue}
+                        secondary={weddingData.location.address}
+                        className="sm:col-span-2"
+                      />
+                      <WeddingDetailCard
+                        icon={<Users className="h-5 w-5" />}
+                        label="Color Motif"
+                        value="Sage Green & Butter Yellow"
+                        className="sm:col-span-2"
+                      />
+                    </div>
+
+                    <a
+                      href={weddingData.location.mapUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mx-auto mt-6 flex w-fit items-center justify-center gap-2 border-b border-theme-accent/40 pb-1 font-nav text-[9px] uppercase tracking-[0.2em] text-theme-accent/80 transition-colors hover:text-theme-accent sm:text-[10px]"
+                    >
+                      <MapPin className="h-3.5 w-3.5" />
+                      Open venue map
+                    </a>
+                  </section>
                 )}
-                
-                <button 
-                    onClick={onClose}
-                    className="font-nav inline-block bg-transparent border border-theme-accent text-theme-accent px-10 py-4 uppercase tracking-[0.08em] font-medium text-xs rounded-sm hover:bg-theme-accent hover:text-theme-bg transition-colors"
+
+                <div className="mt-10 text-center">
+                  <div className="mx-auto mb-7 h-px max-w-xs bg-theme-accent/25" />
+                  <p className="font-serif text-sm italic text-theme-accent/70">With love,</p>
+                  <p className="mt-1 font-serif text-2xl text-theme-accent">{weddingData.couple.names}</p>
+                  <p className="mt-3 font-nav text-[9px] uppercase tracking-[0.2em] text-theme-accent/55">
+                    {weddingData.couple.hashtag}
+                  </p>
+                </div>
+              </motion.article>
+
+              <div className="mt-8 text-center">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="inline-flex min-w-[220px] items-center justify-center border border-theme-accent bg-transparent px-8 py-4 font-nav text-[10px] font-medium uppercase tracking-[0.12em] text-theme-accent transition-all duration-300 hover:bg-theme-accent hover:text-theme-bg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-theme-accent focus-visible:ring-offset-2 focus-visible:ring-offset-theme-bg sm:text-xs"
                 >
-                    Return to Website
+                  Return to Website
                 </button>
-             </motion.div>
+              </div>
+            </motion.div>
           )}
 
         </AnimatePresence>
       </div>
 
+    </div>
+  );
+}
+
+interface ConfirmationRowProps {
+  label: string;
+  value: string;
+  multiline?: boolean;
+}
+
+function ConfirmationRow({ label, value, multiline = false }: ConfirmationRowProps) {
+  return (
+    <div className={`grid gap-1 py-4 font-sans sm:grid-cols-[145px_1fr] sm:gap-5 ${multiline ? 'items-start' : 'items-center'}`}>
+      <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-theme-accent/50">
+        {label}
+      </span>
+      <span className={`text-sm leading-relaxed text-theme-accent sm:text-[15px] ${multiline ? 'whitespace-pre-wrap' : ''}`}>
+        {value}
+      </span>
+    </div>
+  );
+}
+
+interface WeddingDetailCardProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  secondary?: string;
+  className?: string;
+}
+
+function WeddingDetailCard({ icon, label, value, secondary, className = '' }: WeddingDetailCardProps) {
+  return (
+    <div className={`border border-theme-accent/20 bg-theme-accent/[0.04] px-5 py-5 text-center ${className}`}>
+      <div className="mx-auto mb-3 flex w-fit text-theme-accent/70">{icon}</div>
+      <p className="mb-2 font-nav text-[9px] font-medium uppercase tracking-[0.2em] text-theme-accent/50">
+        {label}
+      </p>
+      <p className="font-serif text-lg leading-snug text-theme-accent">{value}</p>
+      {secondary && (
+        <p className="mx-auto mt-2 max-w-sm font-sans text-xs leading-relaxed text-theme-accent/65">
+          {secondary}
+        </p>
+      )}
     </div>
   );
 }
