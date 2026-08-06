@@ -20,10 +20,18 @@ import RSVP from './components/RSVP';
 import Footer from './components/Footer';
 import RSVPPage from './components/RSVPPage';
 import SectionDivider from './components/SectionDivider';
+import MaintenancePage from './components/MaintenancePage';
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isRSVPOpen, setIsRSVPOpen] = useState(false);
+
+  const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+
+  if (isMaintenanceMode) {
+    return <MaintenancePage />;
+  }
+
 
   // Expose setRSVPOpen globally or simply open it via RSVP component
   // For simplicity, we can pass it down to RSVP and Navbar if needed 
