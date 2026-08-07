@@ -22,11 +22,13 @@ import RSVPPage from './components/RSVPPage';
 import SectionDivider from './components/SectionDivider';
 import MaintenancePage from './components/MaintenancePage';
 
+import { SITE_MODE } from './config/siteSettings';
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [isRSVPOpen, setIsRSVPOpen] = useState(false);
 
-  const isMaintenanceMode = import.meta.env.VITE_MAINTENANCE_MODE === 'true';
+  const isMaintenanceMode = SITE_MODE === 'maintenance';
 
   if (isMaintenanceMode) {
     return <MaintenancePage />;
