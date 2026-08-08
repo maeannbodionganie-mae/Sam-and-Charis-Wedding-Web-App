@@ -41,13 +41,23 @@ export interface SubmitResponse {
 
 type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
+const PRODUCTION_RSVP_URL =
+  'https://script.google.com/macros/s/AKfycbyGHcGhsQD-tPzp81Q7jg8939hgCF186sWCkgaSrjplqfLAVo3t8lciQ_Ssnf8zPAGA/exec';
+
 const getUrl = (): string => {
-  const url = String(
+  const environmentUrl = String(
     import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || ''
   ).trim();
 
-  if (!url) {
-    throw new Error('RSVP backend is not configured.');
+  const url = environmentUrl || PRODUCTION_RSVP_URL;
+
+  if (
+    !url.startsWith('https://script.google.com/macros/s/') ||
+    !url.endsWith('/exec')
+  ) {
+    throw new Error(
+      'RSVP service is temporarily unavailable. Please try again.'
+    );
   }
 
   return url;
