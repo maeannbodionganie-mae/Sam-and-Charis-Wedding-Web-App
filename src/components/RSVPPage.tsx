@@ -23,7 +23,7 @@ const getStepNumber = (step: Step) => {
 };
 
 const WEDDING_LOGO = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png';
-const CONFIRMATION_BG = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786199460/HH_h8zjvg.jpg';
+const CONFIRMATION_BG = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786199461/IMG_9207_2_qqbpdi.jpg';
 
 export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   const [currentStep, setCurrentStep] = useState<Step>('FIND');
@@ -192,15 +192,15 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
         <img 
           src={CONFIRMATION_BG} 
           alt="" 
-          className="w-full h-full object-cover opacity-15"
+          className="w-full h-full object-cover opacity-45 sm:opacity-50"
         />
-        <div className="absolute inset-0 bg-theme-bg/85 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-theme-bg/60" />
+        <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-theme-bg/75 via-theme-bg/40 to-theme-bg/80" />
       </div>
 
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-theme-bg/95 backdrop-blur-md shadow-sm">
-        <div className="flex items-center justify-between px-6 py-6 sm:px-12">
+      <div className={`sticky top-0 z-20 bg-theme-bg/90 backdrop-blur-md transition-colors ${currentStep === 'CONFIRMATION' ? 'border-b-0' : 'border-b border-theme-accent/20'}`}>
+        <div className="flex items-center justify-between px-6 py-4 sm:px-12 max-w-7xl mx-auto">
            <div className="w-8"></div>
            <h2 className="font-nav text-theme-accent tracking-[0.2em] font-medium uppercase text-sm sm:text-base">RSVP</h2>
            <button 
@@ -212,15 +212,17 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
            </button>
         </div>
         
-        {/* Progress Bar */}
-        <div className="w-full h-[3px] bg-[#f3f0e8]/10 max-w-7xl mx-auto px-4 sm:px-12 overflow-hidden">
-            <motion.div 
-               className="h-full bg-theme-accent"
-               initial={{ width: 0 }}
-               animate={{ width: `${progressPercent}%` }}
-               transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-        </div>
+        {/* Progress Bar (Only during steps 1 to 3) */}
+        {currentStep !== 'CONFIRMATION' && (
+          <div className="w-full h-[2px] bg-theme-accent/10 overflow-hidden">
+              <motion.div 
+                 className="h-full bg-theme-accent"
+                 initial={{ width: 0 }}
+                 animate={{ width: `${progressPercent}%` }}
+                 transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+          </div>
+        )}
       </div>
 
       {/* Main Content Area */}
@@ -395,7 +397,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
           {currentStep === 'CONFIRMATION' && (
               <motion.div
                 key="step4" custom={direction} variants={slideVariants} initial="initial" animate="animate" exit="exit"
-                className="w-full max-w-2xl mx-auto py-2"
+                className="w-full max-w-2xl mx-auto py-4"
              >
                 {(() => {
                    const cleanEmail = email ? email.trim() : '';
@@ -408,23 +410,26 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                    const isAttending = rsvpStatus === 'Yes';
 
                    return (
-                      <div className="bg-theme-accent/5 border border-theme-accent/25 rounded-xl p-6 sm:p-10 shadow-2xl backdrop-blur-md relative overflow-hidden text-center">
+                      <div className="bg-[#132219]/90 border border-theme-accent/35 rounded-2xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl relative overflow-hidden text-center">
+                         {/* Subtle Decorative Inner Frame */}
+                         <div className="absolute inset-3 sm:inset-4 border border-theme-accent/20 rounded-xl pointer-events-none" />
+
                          {/* Top Logo */}
-                         <div className="mb-6 flex justify-center">
+                         <div className="mb-6 flex justify-center relative z-10">
                             <img 
                               src={WEDDING_LOGO} 
                               alt="Sam & Charis Logo" 
-                              className="h-16 sm:h-20 w-auto object-contain"
+                              className="h-16 sm:h-20 w-auto object-contain drop-shadow-md"
                             />
                          </div>
 
                          {/* Header Title */}
-                         <h1 className="font-serif text-3xl sm:text-4xl text-theme-accent tracking-widest uppercase mb-3 font-semibold">
+                         <h1 className="font-serif text-3xl sm:text-4xl text-theme-accent tracking-[0.2em] uppercase mb-3 font-semibold relative z-10">
                             {isAttending ? 'RSVP CONFIRMED' : 'RSVP RECEIVED'}
                          </h1>
 
                          {/* Subheading / Greeting */}
-                         <p className="font-serif text-lg sm:text-xl text-theme-accent/90 italic mb-2">
+                         <p className="font-serif text-lg sm:text-xl text-theme-accent/90 italic mb-2 relative z-10">
                             {isAttending ? (
                               `Thank you, ${guestDisplayName}. We are excited to celebrate with you.`
                             ) : (
@@ -432,13 +437,13 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                             )}
                          </p>
                          {!isAttending && (
-                            <p className="font-sans text-sm sm:text-base text-theme-accent/80 mb-4">
+                            <p className="font-sans text-sm sm:text-base text-theme-accent/80 mb-3 relative z-10">
                               We’re sorry you won’t be able to join us. You will be missed.
                             </p>
                          )}
 
                          {/* Email confirmation badge/message */}
-                         <div className="my-6 p-4 bg-theme-accent/10 border border-theme-accent/20 rounded-md text-sm text-theme-accent font-sans max-w-lg mx-auto">
+                         <div className="my-5 p-3.5 bg-theme-accent/10 border border-theme-accent/25 rounded-md text-sm text-theme-accent font-sans max-w-lg mx-auto relative z-10">
                             {isAttending ? (
                               isEmailConfirmed ? (
                                 <>A confirmation email has been sent to <span className="font-semibold text-theme-accent">{cleanEmail}</span>.</>
@@ -454,44 +459,41 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                             )}
                          </div>
 
-                         {/* Divider */}
-                         <div className="w-full h-px bg-theme-accent/20 my-6"></div>
+                         {/* Gold Ornament Divider */}
+                         <div className="w-24 h-px bg-theme-accent/35 mx-auto my-6 relative z-10" />
 
                          {/* Submitted Response Details Card */}
-                         <div className="text-left mb-8 bg-theme-accent/5 border border-theme-accent/15 rounded-lg p-5 sm:p-6">
-                            <h3 className="font-serif text-xl text-theme-accent mb-4 border-b border-theme-accent/20 pb-2">
-                               Response Details
+                         <div className="text-left mb-6 bg-black/25 border border-theme-accent/20 rounded-xl p-5 sm:p-6 relative z-10">
+                            <h3 className="font-serif text-xl text-theme-accent mb-4 border-b border-theme-accent/20 pb-2 flex items-center justify-between">
+                               <span>Response Details</span>
+                               <span className="text-xs font-sans tracking-widest text-theme-accent/60 uppercase">Confirmed</span>
                             </h3>
-                            <div className="space-y-3 font-sans text-sm text-theme-accent/90">
-                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                            <div className="space-y-2.5 font-sans text-sm text-theme-accent/90">
+                               <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                   <span className="opacity-70 font-medium">Are you attending?</span>
                                   <span className="font-semibold text-theme-accent">{isAttending ? 'Yes' : 'No'}</span>
                                </div>
-                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                               <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                   <span className="opacity-70 font-medium">Full Name</span>
                                   <span className="font-semibold text-theme-accent">{guestData?.fullName || nickname || '—'}</span>
                                </div>
-                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                               <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                   <span className="opacity-70 font-medium">Nickname</span>
                                   <span className="font-semibold text-theme-accent">{nickname.trim() || '—'}</span>
                                </div>
-                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                               <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                   <span className="opacity-70 font-medium">Email</span>
                                   <span className="font-semibold text-theme-accent">{cleanEmail || '—'}</span>
                                </div>
 
                                {isAttending && (
                                   <>
-                                     <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                     <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                         <span className="opacity-70 font-medium">Number of Guests</span>
                                         <span className="font-semibold text-theme-accent">{numberOfGuests}</span>
                                      </div>
-                                     <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
-                                        <span className="opacity-70 font-medium">Guest Names</span>
-                                        <span className="font-semibold text-theme-accent">{nickname.trim() || '—'}</span>
-                                     </div>
                                      {mealPreference.trim() && (
-                                       <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                       <div className="flex justify-between items-start py-1.5 border-b border-theme-accent/10">
                                           <span className="opacity-70 font-medium">Meal Preference</span>
                                           <span className="font-semibold text-theme-accent">{mealPreference.trim()}</span>
                                        </div>
@@ -499,7 +501,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                                   </>
                                )}
 
-                               <div className="flex justify-between items-start py-1">
+                               <div className="flex justify-between items-start py-1.5">
                                   <span className="opacity-70 font-medium">Message to Couple</span>
                                   <span className="font-semibold text-theme-accent text-right max-w-[220px] sm:max-w-xs">{message.trim() || '—'}</span>
                                </div>
@@ -508,39 +510,39 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
 
                          {/* Wedding Details OR Missed Message Card */}
                          {isAttending ? (
-                            <div className="bg-theme-accent/10 border border-theme-accent/25 rounded-lg p-6 mb-8 text-center">
-                               <h3 className="font-serif text-2xl text-theme-accent mb-4">Wedding Details</h3>
+                            <div className="bg-black/25 border border-theme-accent/20 rounded-xl p-5 sm:p-6 mb-6 text-center relative z-10">
+                               <h3 className="font-serif text-2xl text-theme-accent mb-4 border-b border-theme-accent/20 pb-2">Wedding Details</h3>
                                
-                               <div className="space-y-4 font-sans text-sm text-theme-accent/90">
-                                  <div>
-                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Date & Time</p>
+                               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-sans text-sm text-theme-accent/90">
+                                  <div className="p-2">
+                                     <p className="font-serif text-base text-theme-accent font-semibold mb-1">Date & Time</p>
                                      <p className="font-medium">September 25, 2026</p>
                                      <p className="text-xs opacity-80">3:00 PM</p>
                                   </div>
 
-                                  <div>
-                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Venue</p>
+                                  <div className="p-2 border-t sm:border-t-0 sm:border-l border-theme-accent/15">
+                                     <p className="font-serif text-base text-theme-accent font-semibold mb-1">Venue</p>
                                      <p className="font-medium">Savanna Farm Tagaytay</p>
-                                     <p className="text-xs opacity-80">007, Brgy. Alfonso, Cavite, Philippines</p>
+                                     <p className="text-xs opacity-80">007, Brgy. Alfonso, Cavite</p>
                                   </div>
 
-                                  <div>
-                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Color Motif</p>
+                                  <div className="p-2 border-t sm:border-t-0 sm:border-l border-theme-accent/15">
+                                     <p className="font-serif text-base text-theme-accent font-semibold mb-1">Color Motif</p>
                                      <p className="font-medium">Sage Green & Butter Yellow</p>
                                   </div>
                                </div>
                             </div>
                          ) : (
-                            <div className="bg-theme-accent/10 border border-theme-accent/25 rounded-lg p-6 mb-8 text-center">
+                            <div className="bg-black/25 border border-theme-accent/20 rounded-xl p-6 mb-6 text-center relative z-10">
                                <h3 className="font-serif text-2xl text-theme-accent mb-2">You Will Be Missed</h3>
-                               <p className="font-sans text-sm text-theme-accent/85 leading-relaxed">
+                               <p className="font-sans text-sm text-theme-accent/85 leading-relaxed max-w-md mx-auto">
                                   Although we will miss celebrating with you in person, we truly appreciate your response and warm wishes.
                                </p>
                             </div>
                          )}
 
                          {/* Closing */}
-                         <div className="mb-8 text-center">
+                         <div className="mb-6 text-center relative z-10">
                             <p className="font-serif italic text-theme-accent/80 text-sm">With love,</p>
                             <p className="font-serif text-2xl text-theme-accent font-bold mt-1">Sam & Charis</p>
                          </div>
@@ -548,7 +550,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                          {/* Action Button */}
                          <button 
                             onClick={onClose}
-                            className="font-nav inline-block bg-theme-accent text-theme-bg px-10 py-4 uppercase tracking-[0.08em] font-medium text-xs rounded-sm hover:bg-theme-accent/90 transition-all shadow-md"
+                            className="font-nav inline-block bg-theme-accent text-theme-bg px-10 py-3.5 uppercase tracking-[0.1em] font-medium text-xs rounded-sm hover:bg-theme-accent/90 transition-all shadow-md hover:shadow-lg relative z-10 pointer-events-auto"
                          >
                             Return to Website
                          </button>
