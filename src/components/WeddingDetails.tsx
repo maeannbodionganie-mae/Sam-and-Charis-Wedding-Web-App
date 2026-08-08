@@ -5,7 +5,7 @@ import { weddingData } from '../data/weddingData';
 export default function WeddingDetails() {
   const [copied, setCopied] = useState(false);
   
-  const bgImage = "https://res.cloudinary.com/zjjivspl/image/upload/v1783771517/Savanna_rhh3in.png";
+  const bgImage = "https://res.cloudinary.com/l9vkavcj/image/upload/v1786199681/Savanna_ttr7ax.png";
 
   const generateGoogleCalendarLink = () => {
     const text = encodeURIComponent("Sam & Charis Wedding");
@@ -24,9 +24,9 @@ export default function WeddingDetails() {
   };
 
   return (
-    <section id="details" className="relative w-full min-h-[80svh] md:min-h-screen bg-theme-bg overflow-hidden flex flex-col md:flex-row">
+    <section id="details" className="relative w-full min-h-screen bg-theme-bg flex flex-col md:flex-row">
       {/* Left side: Content with blurred image background */}
-      <div className="relative w-full md:w-1/2 min-h-[80svh] md:h-screen flex flex-col justify-center md:justify-between p-6 sm:p-8 md:p-10 lg:p-16 text-theme-accent z-10 py-16 md:py-16 gap-6 md:gap-0">
+      <div className="relative w-full md:w-1/2 min-h-screen flex flex-col justify-between p-6 sm:p-8 md:p-10 lg:p-12 text-theme-accent z-10 py-12 md:py-12 gap-8 md:gap-6">
         {/* Background layer for left side (blurred bg image for elegant depth) */}
         <div className="absolute inset-0 -z-10 overflow-hidden bg-theme-bg">
           <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover opacity-50 filter blur-2xl scale-110" />
@@ -38,7 +38,7 @@ export default function WeddingDetails() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-nav text-theme-accent/80 uppercase tracking-widest text-xs md:text-sm pt-2 md:pt-4"
+          className="font-nav text-theme-accent/80 uppercase tracking-widest text-xs md:text-sm pt-2"
         >
           WEDDING<br/>DETAILS
         </motion.div>
@@ -48,18 +48,18 @@ export default function WeddingDetails() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, delay: 0.2 }}
-          className="my-2 md:my-0 md:flex-1 flex flex-col justify-center"
+          className="my-4 md:my-0 flex-1 flex flex-col justify-center"
         >
-          <span className="font-nav text-theme-accent/90 uppercase tracking-[0.2em] text-[10px] sm:text-xs mb-3 md:mb-4 block font-medium">
+          <span className="font-nav text-theme-accent/90 uppercase tracking-[0.2em] text-[10px] sm:text-xs mb-2 md:mb-3 block font-medium">
             Ceremony & Reception
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-theme-accent leading-[0.9] mb-1 font-bold">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-theme-accent leading-[0.95] mb-1 font-bold">
             SAVANNA
           </h2>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-theme-accent leading-[0.9] font-bold">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-theme-accent leading-[0.95] font-bold">
             FARM
           </h2>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-theme-accent leading-[0.9] mt-1 md:mt-2 font-bold">
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl text-theme-accent leading-[0.95] mt-1 font-bold">
             TAGAYTAY
           </h2>
         </motion.div>
@@ -71,13 +71,13 @@ export default function WeddingDetails() {
           viewport={{ once: true, delay: 0.4 }}
           className="pb-2 md:pb-4"
         >
-          <p className="font-sans text-theme-accent/90 text-sm md:text-base leading-relaxed max-w-sm mb-6 md:mb-8">
+          <p className="font-sans text-theme-accent/90 text-sm md:text-base leading-relaxed max-w-sm mb-5 md:mb-6">
             {weddingData.location.address}
             <br/><br/>
             {weddingData.date.full} at {weddingData.date.time} PHT.
           </p>
           
-          <div className="flex flex-wrap gap-4 md:gap-6 items-start sm:items-center">
+          <div className="flex flex-wrap gap-4 md:gap-6 items-center pt-2">
             <a href={generateGoogleCalendarLink()} target="_blank" rel="noopener noreferrer" className="font-nav text-[10px] md:text-xs tracking-widest uppercase text-theme-accent hover:text-white transition-colors border-b border-theme-accent/50 pb-1">
               ADD TO CALENDAR
             </a>
@@ -92,7 +92,7 @@ export default function WeddingDetails() {
       </div>
 
       {/* Right side: Beautiful high-quality image of the venue (visible on desktop) */}
-      <div className="hidden md:block md:w-1/2 h-screen relative overflow-hidden">
+      <div className="hidden md:block md:w-1/2 min-h-screen relative overflow-hidden">
         <motion.div 
           initial={{ scale: 1.05, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}

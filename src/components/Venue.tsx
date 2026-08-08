@@ -35,7 +35,7 @@ export default function Venue() {
           >
             {/* Image Placeholder representing the venue */}
             <img 
-               src="https://res.cloudinary.com/zjjivspl/image/upload/v1783771517/Savanna_rhh3in.png" 
+               src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786199681/Savanna_ttr7ax.png" 
                alt="Savanna Farm Tagaytay" 
                className="w-full h-full object-cover"
             />

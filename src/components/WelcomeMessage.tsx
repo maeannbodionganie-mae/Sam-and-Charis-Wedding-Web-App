@@ -7,7 +7,7 @@ export default function WelcomeMessage() {
       {/* Background Image */}
       <div 
          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35" 
-         style={{ backgroundImage: 'url("https://res.cloudinary.com/zjjivspl/image/upload/v1783149420/9_bf5eee.jpg")' }}
+         style={{ backgroundImage: 'url("https://res.cloudinary.com/l9vkavcj/image/upload/v1786200798/1_pic_intro_1_iadqde.jpg")' }}
       />
       <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply" />
       <div className="absolute inset-0 bg-theme-bg/40" />

@@ -65,7 +65,7 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
           <div className="md:hidden">
             <a href="#home" onClick={(e) => handleScrollTo(e, '#home')} className={`shrink-0 flex items-center hover:opacity-80 transition-all duration-300 ${isScrolled ? 'h-16 w-16' : 'h-22 w-22'}`}>
               <img 
-                src="https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png" 
+                src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png" 
                 alt="Sam & Charis Logo" 
                 className="h-full w-full object-contain"
               />
@@ -86,7 +86,7 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
                     className={`shrink-0 flex items-center hover:opacity-80 transition-all duration-300 mr-1 ${isScrolled ? 'h-16 w-16' : 'h-20 w-20'}`}
                   >
                     <img 
-                      src="https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png" 
+                      src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png" 
                       alt="Sam & Charis Logo" 
                       className="h-full w-full object-contain"
                     />
@@ -147,7 +147,7 @@ export default function Navbar({ onOpenRSVP }: NavbarProps) {
                       className="w-24 h-24 mb-2 hover:opacity-80 transition-opacity"
                     >
                       <img 
-                        src="https://res.cloudinary.com/zjjivspl/image/upload/v1784371590/Cha_and_Sam_Wed_Logo_07172026_Yellow_rkjmqf.png" 
+                        src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png" 
                         alt="Sam & Charis Logo" 
                         className="h-full w-full object-contain"
                       />

@@ -23,7 +23,7 @@ export default function GiftGuide() {
 
             <div className="w-full max-w-3xl mx-auto bg-theme-accent/5 text-theme-accent rounded-xl p-4 sm:p-6 shadow-xl border border-theme-accent/25 hover:bg-theme-accent/10 transition-colors cursor-default">
                  <img 
-                   src="https://res.cloudinary.com/zjjivspl/image/upload/v1783771498/QR_Code_gppfoo.png" 
+                   src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786199467/QR_Code_xflfwq.png" 
                    alt="Bank QR Codes" 
                    className="w-full h-auto object-contain rounded-md"
                  />
