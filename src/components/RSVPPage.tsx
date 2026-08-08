@@ -22,6 +22,9 @@ const getStepNumber = (step: Step) => {
   }
 };
 
+const WEDDING_LOGO = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png';
+const CONFIRMATION_BG = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786199460/HH_h8zjvg.jpg';
+
 export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   const [currentStep, setCurrentStep] = useState<Step>('FIND');
   
@@ -183,9 +186,20 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
+    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] relative">
+      {/* Romantic Background Overlay */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <img 
+          src={CONFIRMATION_BG} 
+          alt="" 
+          className="w-full h-full object-cover opacity-15"
+        />
+        <div className="absolute inset-0 bg-theme-bg/85 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-theme-bg/60" />
+      </div>
+
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-theme-bg shadow-sm">
+      <div className="sticky top-0 z-10 bg-theme-bg/95 backdrop-blur-md shadow-sm">
         <div className="flex items-center justify-between px-6 py-6 sm:px-12">
            <div className="w-8"></div>
            <h2 className="font-nav text-theme-accent tracking-[0.2em] font-medium uppercase text-sm sm:text-base">RSVP</h2>
@@ -210,7 +224,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col justify-center max-w-[600px] mx-auto w-full px-6 py-12 sm:py-16">
+      <div className={`flex-1 flex flex-col justify-center mx-auto w-full px-6 py-10 sm:py-14 relative z-10 ${currentStep === 'CONFIRMATION' ? 'max-w-[700px]' : 'max-w-[600px]'}`}>
         <AnimatePresence mode="wait" custom={direction}>
             
           {/* STEP 1: FIND INVITATION */}
@@ -381,12 +395,8 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
           {currentStep === 'CONFIRMATION' && (
               <motion.div
                 key="step4" custom={direction} variants={slideVariants} initial="initial" animate="animate" exit="exit"
-                className="w-full text-center"
+                className="w-full max-w-2xl mx-auto py-2"
              >
-                <div className="w-16 h-16 rounded-full bg-theme-accent/20 mx-auto mb-8 flex items-center justify-center">
-                   <svg className="w-8 h-8 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                </div>
-
                 {(() => {
                    const cleanEmail = email ? email.trim() : '';
                    const hasValidEmail = Boolean(cleanEmail);
@@ -394,42 +404,157 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                       submitResultMessage.toLowerCase().includes('email') ||
                       submitResultMessage.toLowerCase().includes('sent')
                    );
+                   const guestDisplayName = nickname.trim() || guestData?.fullName?.split(' ')[0] || guestData?.fullName || 'Guest';
+                   const isAttending = rsvpStatus === 'Yes';
 
-                   if (rsvpStatus === 'Yes') {
-                      return (
-                         <>
-                            <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6 leading-tight">Can't wait to celebrate with you!</h1>
-                            <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                               {isEmailConfirmed ? (
-                                  <>Thank you for confirming your attendance. Your RSVP has been saved, and a confirmation email has been sent to <span className="text-theme-accent">{cleanEmail}</span>.</>
-                               ) : (
-                                  <>Your RSVP has been saved successfully.</>
-                               )}
+                   return (
+                      <div className="bg-theme-accent/5 border border-theme-accent/25 rounded-xl p-6 sm:p-10 shadow-2xl backdrop-blur-md relative overflow-hidden text-center">
+                         {/* Top Logo */}
+                         <div className="mb-6 flex justify-center">
+                            <img 
+                              src={WEDDING_LOGO} 
+                              alt="Sam & Charis Logo" 
+                              className="h-16 sm:h-20 w-auto object-contain"
+                            />
+                         </div>
+
+                         {/* Header Title */}
+                         <h1 className="font-serif text-3xl sm:text-4xl text-theme-accent tracking-widest uppercase mb-3 font-semibold">
+                            {isAttending ? 'RSVP CONFIRMED' : 'RSVP RECEIVED'}
+                         </h1>
+
+                         {/* Subheading / Greeting */}
+                         <p className="font-serif text-lg sm:text-xl text-theme-accent/90 italic mb-2">
+                            {isAttending ? (
+                              `Thank you, ${guestDisplayName}. We are excited to celebrate with you.`
+                            ) : (
+                              `Thank you, ${guestDisplayName}, for letting us know.`
+                            )}
+                         </p>
+                         {!isAttending && (
+                            <p className="font-sans text-sm sm:text-base text-theme-accent/80 mb-4">
+                              We’re sorry you won’t be able to join us. You will be missed.
                             </p>
-                         </>
-                      );
-                   } else {
-                      return (
-                         <>
-                            <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6">You will be missed.</h1>
-                            <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                               {isEmailConfirmed ? (
-                                  <>We have recorded your response, and an acknowledgement has been sent to <span className="text-theme-accent">{cleanEmail}</span>.</>
-                               ) : (
-                                  <>We have recorded your response.</>
+                         )}
+
+                         {/* Email confirmation badge/message */}
+                         <div className="my-6 p-4 bg-theme-accent/10 border border-theme-accent/20 rounded-md text-sm text-theme-accent font-sans max-w-lg mx-auto">
+                            {isAttending ? (
+                              isEmailConfirmed ? (
+                                <>A confirmation email has been sent to <span className="font-semibold text-theme-accent">{cleanEmail}</span>.</>
+                              ) : (
+                                <>Your RSVP has been saved successfully.</>
+                              )
+                            ) : (
+                              isEmailConfirmed ? (
+                                <>An acknowledgement email has been sent to <span className="font-semibold text-theme-accent">{cleanEmail}</span>.</>
+                              ) : (
+                                <>Your response has been recorded successfully.</>
+                              )
+                            )}
+                         </div>
+
+                         {/* Divider */}
+                         <div className="w-full h-px bg-theme-accent/20 my-6"></div>
+
+                         {/* Submitted Response Details Card */}
+                         <div className="text-left mb-8 bg-theme-accent/5 border border-theme-accent/15 rounded-lg p-5 sm:p-6">
+                            <h3 className="font-serif text-xl text-theme-accent mb-4 border-b border-theme-accent/20 pb-2">
+                               Response Details
+                            </h3>
+                            <div className="space-y-3 font-sans text-sm text-theme-accent/90">
+                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                  <span className="opacity-70 font-medium">Are you attending?</span>
+                                  <span className="font-semibold text-theme-accent">{isAttending ? 'Yes' : 'No'}</span>
+                               </div>
+                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                  <span className="opacity-70 font-medium">Full Name</span>
+                                  <span className="font-semibold text-theme-accent">{guestData?.fullName || nickname || '—'}</span>
+                               </div>
+                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                  <span className="opacity-70 font-medium">Nickname</span>
+                                  <span className="font-semibold text-theme-accent">{nickname.trim() || '—'}</span>
+                               </div>
+                               <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                  <span className="opacity-70 font-medium">Email</span>
+                                  <span className="font-semibold text-theme-accent">{cleanEmail || '—'}</span>
+                               </div>
+
+                               {isAttending && (
+                                  <>
+                                     <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                        <span className="opacity-70 font-medium">Number of Guests</span>
+                                        <span className="font-semibold text-theme-accent">{numberOfGuests}</span>
+                                     </div>
+                                     <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                        <span className="opacity-70 font-medium">Guest Names</span>
+                                        <span className="font-semibold text-theme-accent">{nickname.trim() || '—'}</span>
+                                     </div>
+                                     {mealPreference.trim() && (
+                                       <div className="flex justify-between items-start py-1 border-b border-theme-accent/10">
+                                          <span className="opacity-70 font-medium">Meal Preference</span>
+                                          <span className="font-semibold text-theme-accent">{mealPreference.trim()}</span>
+                                       </div>
+                                     )}
+                                  </>
                                )}
-                            </p>
-                         </>
-                      );
-                   }
+
+                               <div className="flex justify-between items-start py-1">
+                                  <span className="opacity-70 font-medium">Message to Couple</span>
+                                  <span className="font-semibold text-theme-accent text-right max-w-[220px] sm:max-w-xs">{message.trim() || '—'}</span>
+                               </div>
+                            </div>
+                         </div>
+
+                         {/* Wedding Details OR Missed Message Card */}
+                         {isAttending ? (
+                            <div className="bg-theme-accent/10 border border-theme-accent/25 rounded-lg p-6 mb-8 text-center">
+                               <h3 className="font-serif text-2xl text-theme-accent mb-4">Wedding Details</h3>
+                               
+                               <div className="space-y-4 font-sans text-sm text-theme-accent/90">
+                                  <div>
+                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Date & Time</p>
+                                     <p className="font-medium">September 25, 2026</p>
+                                     <p className="text-xs opacity-80">3:00 PM</p>
+                                  </div>
+
+                                  <div>
+                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Venue</p>
+                                     <p className="font-medium">Savanna Farm Tagaytay</p>
+                                     <p className="text-xs opacity-80">007, Brgy. Alfonso, Cavite, Philippines</p>
+                                  </div>
+
+                                  <div>
+                                     <p className="font-serif text-base text-theme-accent font-semibold border-b border-theme-accent/20 pb-1 mb-1 max-w-[180px] mx-auto">Color Motif</p>
+                                     <p className="font-medium">Sage Green & Butter Yellow</p>
+                                  </div>
+                               </div>
+                            </div>
+                         ) : (
+                            <div className="bg-theme-accent/10 border border-theme-accent/25 rounded-lg p-6 mb-8 text-center">
+                               <h3 className="font-serif text-2xl text-theme-accent mb-2">You Will Be Missed</h3>
+                               <p className="font-sans text-sm text-theme-accent/85 leading-relaxed">
+                                  Although we will miss celebrating with you in person, we truly appreciate your response and warm wishes.
+                               </p>
+                            </div>
+                         )}
+
+                         {/* Closing */}
+                         <div className="mb-8 text-center">
+                            <p className="font-serif italic text-theme-accent/80 text-sm">With love,</p>
+                            <p className="font-serif text-2xl text-theme-accent font-bold mt-1">Sam & Charis</p>
+                         </div>
+
+                         {/* Action Button */}
+                         <button 
+                            onClick={onClose}
+                            className="font-nav inline-block bg-theme-accent text-theme-bg px-10 py-4 uppercase tracking-[0.08em] font-medium text-xs rounded-sm hover:bg-theme-accent/90 transition-all shadow-md"
+                         >
+                            Return to Website
+                         </button>
+                      </div>
+                   );
                 })()}
-                
-                <button 
-                    onClick={onClose}
-                    className="font-nav inline-block bg-transparent border border-theme-accent text-theme-accent px-10 py-4 uppercase tracking-[0.08em] font-medium text-xs rounded-sm hover:bg-theme-accent hover:text-theme-bg transition-colors"
-                >
-                    Return to Website
-                </button>
              </motion.div>
           )}
 
