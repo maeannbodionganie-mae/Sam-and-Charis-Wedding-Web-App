@@ -186,7 +186,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] relative">
+    <div className="fixed inset-0 z-[100] bg-theme-bg overflow-y-auto flex flex-col pt-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)]">
       {/* Romantic Background Overlay */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <img 
