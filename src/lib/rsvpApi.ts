@@ -41,8 +41,17 @@ export interface SubmitResponse {
 
 type AppsScriptAction = 'lookupGuest' | 'submitRSVP';
 
-const GOOGLE_APPS_SCRIPT_URL =
-  'https://script.google.com/macros/s/AKfycbzuUmcS3-_tnS5RqFQf51llgmQnI9fsGw3qxla_QRKGNUy1i_LSoIQnTzhQGgRcH8U/exec';      
+const getUrl = (): string => {
+  const url = String(
+    import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL || ''
+  ).trim();
+
+  if (!url) {
+    throw new Error('RSVP backend is not configured.');
+  }
+
+  return url;
+};      
 
 const getErrorMessage = (
   error: unknown,
@@ -59,7 +68,8 @@ const postToAppsScript = async <TResponse>(
   action: AppsScriptAction,
   payload: Record<string, unknown>
 ): Promise<TResponse> => {
-  const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+  const url = getUrl();
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'text/plain;charset=utf-8',

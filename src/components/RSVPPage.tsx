@@ -39,6 +39,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [submitResultMessage, setSubmitResultMessage] = useState('');
   
   // Track previous step to handle slide direction animations
   const [direction, setDirection] = useState(1);
@@ -111,6 +112,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
 
   const handleSubmitFinal = async (e: FormEvent) => {
     e.preventDefault();
+    if (loading) return;
     
     if (!rsvpStatus) {
       setError('Please select your attendance status.');
@@ -159,6 +161,7 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
     try {
       const response = await submitRSVP(payload);
       if (response.success) {
+        setSubmitResultMessage(response.message || '');
         navigateTo('CONFIRMATION');
       } else {
         setError(response.message || 'There was an issue saving your response.');
@@ -384,21 +387,42 @@ export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
                    <svg className="w-8 h-8 text-theme-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
                 </div>
 
-                {rsvpStatus === 'Yes' ? (
-                   <>
-                      <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6 leading-tight">Can't wait to celebrate with you!</h1>
-                      <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                         Thank you for confirming your attendance. Your RSVP has been saved, and an email confirmation has been sent to <span className="text-theme-accent">{email}</span>.
-                      </p>
-                   </>
-                ) : (
-                   <>
-                      <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6">You will be missed.</h1>
-                      <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
-                         Thank you for letting us know. We have recorded your response. A confirmation email has been sent to <span className="text-theme-accent">{email}</span>.
-                      </p>
-                   </>
-                )}
+                {(() => {
+                   const cleanEmail = email ? email.trim() : '';
+                   const hasValidEmail = Boolean(cleanEmail);
+                   const isEmailConfirmed = hasValidEmail && (
+                      submitResultMessage.toLowerCase().includes('email') ||
+                      submitResultMessage.toLowerCase().includes('sent')
+                   );
+
+                   if (rsvpStatus === 'Yes') {
+                      return (
+                         <>
+                            <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6 leading-tight">Can't wait to celebrate with you!</h1>
+                            <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
+                               {isEmailConfirmed ? (
+                                  <>Thank you for confirming your attendance. Your RSVP has been saved, and a confirmation email has been sent to <span className="text-theme-accent">{cleanEmail}</span>.</>
+                               ) : (
+                                  <>Your RSVP has been saved successfully.</>
+                               )}
+                            </p>
+                         </>
+                      );
+                   } else {
+                      return (
+                         <>
+                            <h1 className="font-serif text-4xl sm:text-[2.75rem] text-theme-accent mb-6">You will be missed.</h1>
+                            <p className="font-sans text-lg text-theme-accent/80 mb-8 max-w-md mx-auto">
+                               {isEmailConfirmed ? (
+                                  <>We have recorded your response, and an acknowledgement has been sent to <span className="text-theme-accent">{cleanEmail}</span>.</>
+                               ) : (
+                                  <>We have recorded your response.</>
+                               )}
+                            </p>
+                         </>
+                      );
+                   }
+                })()}
                 
                 <button 
                     onClick={onClose}
