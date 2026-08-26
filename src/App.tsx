@@ -55,8 +55,6 @@ export default function App() {
           <Gallery />
           
           <EmptyGallery />
-          
-          <SectionDivider />
           <AttireGuide />
           
           <SectionDivider withLogo={true} />
@@ -81,4 +79,3 @@ export default function App() {
     </div>
   );
 }
-
