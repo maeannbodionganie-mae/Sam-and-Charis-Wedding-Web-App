@@ -21,7 +21,7 @@ export default function EmptyGallery() {
       
       {/* Content */}
       <div className="w-full relative z-10 mt-4">
-         <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
+         <div className="relative overflow-hidden w-full border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
            <iframe
              src="https://www.youtube.com/embed/2nJ7pdNnVQc?si=3PQohOnpFlxoWPWo"
              title="Sam and Charis engagement video"
@@ -33,11 +33,11 @@ export default function EmptyGallery() {
          </div>
 
          {/* Decorative divider between the two videos */}
-         <div className="relative bg-theme-bg px-4 sm:px-6 border-y border-theme-accent/20">
+         <div className="relative z-20 isolate bg-theme-bg px-4 sm:px-6">
            <SectionDivider withLogo={true} />
          </div>
 
-         <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
+         <div className="relative overflow-hidden w-full border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
            <iframe
              src="https://www.youtube.com/embed/ws4pdq9d6SM"
              title="Sam and Charis wedding video"
