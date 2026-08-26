@@ -3,11 +3,15 @@ import { motion } from 'motion/react';
 interface SectionDividerProps {
   id?: string;
   withLogo?: boolean;
+  compact?: boolean;
 }
 
-export default function SectionDivider({ id, withLogo = false }: SectionDividerProps) {
+export default function SectionDivider({ id, withLogo = false, compact = false }: SectionDividerProps) {
   return (
-    <div id={id} className="relative w-full flex flex-col items-center justify-center py-8 md:py-12 overflow-hidden select-none">
+    <div
+      id={id}
+      className={`relative w-full flex flex-col items-center justify-center overflow-hidden select-none ${compact ? 'py-0' : 'py-8 md:py-12'}`}
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
