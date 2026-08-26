@@ -20,11 +20,22 @@ export default function EmptyGallery() {
       </div>
       
       {/* Content */}
-      <div className="w-full relative z-10 mt-4">
+      <div className="w-full relative z-10 mt-4 space-y-3 md:space-y-4">
          <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
            <iframe
              src="https://www.youtube.com/embed/2nJ7pdNnVQc?si=3PQohOnpFlxoWPWo"
-             title="YouTube video player"
+             title="Sam and Charis engagement video"
+             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+             referrerPolicy="strict-origin-when-cross-origin"
+             allowFullScreen
+             className="absolute top-0 left-0 w-full h-full"
+           ></iframe>
+         </div>
+
+         <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
+           <iframe
+             src="https://www.youtube.com/embed/ws4pdq9d6SM"
+             title="Sam and Charis wedding video"
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
              referrerPolicy="strict-origin-when-cross-origin"
              allowFullScreen
