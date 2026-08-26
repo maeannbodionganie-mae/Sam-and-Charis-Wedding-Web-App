@@ -70,7 +70,7 @@ export default function Hero({ onOpenRSVP }: HeroProps) {
           playsInline
           className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
         >
-          <source src="https://res.cloudinary.com/h85zozin/video/upload/v1784840591/BG_ih47ka_ohzxj5.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/zewou7fh/video/upload/v1787752695/BG_1.mp4" type="video/mp4" />
         </video>
       
         {/* Overlay to ensure text readability against the video */}
