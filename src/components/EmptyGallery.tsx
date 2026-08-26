@@ -5,7 +5,7 @@ export default function EmptyGallery() {
   const images = weddingData.gallery;
 
   return (
-    <section className="relative pb-12 pt-2 md:pb-20 md:pt-4 overflow-hidden">
+    <section className="relative pb-0 pt-2 md:pt-4 overflow-hidden">
       {/* Blurred Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-110 filter blur-xl" 
