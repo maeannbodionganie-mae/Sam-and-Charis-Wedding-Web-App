@@ -33,8 +33,16 @@ export default function EmptyGallery() {
          </div>
 
          {/* Decorative divider between the two videos */}
-         <div className="relative z-20 isolate bg-theme-bg px-4 sm:px-6">
-           <SectionDivider withLogo={true} compact={true} />
+         <div className="relative z-20 isolate h-16 md:h-20 bg-theme-bg px-4 sm:px-6 flex items-center justify-center overflow-hidden">
+           <div className="flex items-center w-full max-w-md">
+             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-theme-accent/25 to-theme-accent/50" />
+             <img
+               src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png"
+               alt="Sam and Charis ornament"
+               className="mx-4 w-14 h-14 md:w-16 md:h-16 object-contain opacity-60 shrink-0"
+             />
+             <div className="flex-1 h-px bg-gradient-to-l from-transparent via-theme-accent/25 to-theme-accent/50" />
+           </div>
          </div>
 
          <div className="relative overflow-hidden w-full" style={{ paddingBottom: '56.25%' }}>
