@@ -20,7 +20,7 @@ export default function EmptyGallery() {
       </div>
       
       {/* Content */}
-      <div className="w-full relative z-10 mt-4 space-y-3 md:space-y-4">
+      <div className="w-full relative z-10 mt-4">
          <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
            <iframe
              src="https://www.youtube.com/embed/2nJ7pdNnVQc?si=3PQohOnpFlxoWPWo"
@@ -30,6 +30,11 @@ export default function EmptyGallery() {
              allowFullScreen
              className="absolute top-0 left-0 w-full h-full"
            ></iframe>
+         </div>
+
+         {/* Decorative divider between the two videos */}
+         <div className="relative bg-theme-bg px-4 sm:px-6 border-y border-theme-accent/20">
+           <SectionDivider withLogo={true} />
          </div>
 
          <div className="relative overflow-hidden w-full shadow-2xl border-y border-theme-accent/20" style={{ paddingBottom: '56.25%' }}>
