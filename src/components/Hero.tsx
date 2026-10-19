@@ -73,10 +73,10 @@ export default function Hero({ onOpenRSVP }: HeroProps) {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/media/wedding/hero-poster.jpg"
           aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
+          className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/media/wedding/hero-bg.mp4" type="video/mp4" />
         </video>
