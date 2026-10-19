@@ -45,16 +45,7 @@ export default function Gallery() {
       id="gallery"
       className="relative py-10 md:py-16 overflow-hidden"
     >
-      {/* Soft background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-30 scale-110 blur-xl"
-        style={{
-          backgroundImage:
-            "url('/media/wedding/by-grace-alone.jpg')"
-        }}
-      />
-
-      <div className="absolute inset-0 bg-theme-bg/80" />
+      <div className="absolute inset-0 bg-theme-bg" />
 
       <div className="w-[92%] md:w-[85%] max-w-[1600px] mx-auto relative z-10">
 
@@ -95,6 +86,7 @@ export default function Gallery() {
                   alt={item.caption}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
             ))}
@@ -117,26 +109,13 @@ export default function Gallery() {
                 className={`relative overflow-hidden rounded-2xl border border-theme-accent/20 shadow-xl cursor-pointer hover:scale-[1.02] transition-transform duration-500 bg-theme-bg ${getMiddleHeight(idx)}`}
               >
 
-                {/* Blurred background fills empty sides */}
-                {idx === 0 && (
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-cover bg-center scale-110 blur-xl opacity-60"
-                    style={{
-                      backgroundImage: `url("${item.url}")`
-                    }}
-                  />
-                )}
-
                 <img
                   src={item.url}
                   alt={item.caption}
-                  className={`relative z-10 w-full h-full ${
-                    idx === 0
-                      ? 'object-contain'
-                      : 'object-cover'
-                  }`}
+                  className={`w-full h-full object-cover ${idx === 0 ? 'object-[50%_74%]' : 'object-center'}`}
                   loading="lazy"
+                  decoding="async"
+                  sizes="(min-width: 768px) 50vw, 92vw"
                 />
 
               </motion.div>
@@ -164,6 +143,7 @@ export default function Gallery() {
                   alt={item.caption}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </motion.div>
             ))}
