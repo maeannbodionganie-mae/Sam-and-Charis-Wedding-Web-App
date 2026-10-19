@@ -37,6 +37,8 @@ export default function Venue() {
             <img 
                src="/media/wedding/l9vkavcj-Savanna_ttr7ax-273820c341.png" 
                alt="Savanna Farm Tagaytay" 
+               loading="lazy"
+               decoding="async" 
                className="w-full h-full object-cover"
             />
             {/* Overlay for map placeholder effect */}
