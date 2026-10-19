@@ -27,7 +27,7 @@ export default function SectionDivider({ id, withLogo = false, compact = false }
           {/* Center ornament: Elegant wedding logo miniature */}
           <div className="mx-4 flex items-center justify-center">
             <img 
-              src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png" 
+              src="/media/wedding/l9vkavcj-Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq-a0f603f94f.png" 
               alt="Ornament Logo" 
               className="w-16 h-16 md:w-20 md:h-20 object-contain opacity-60"
             />

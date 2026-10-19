@@ -6,7 +6,7 @@ interface RSVPProps {
 }
 
 export default function RSVP({ onOpenRSVP }: RSVPProps) {
-  const bgImage = "https://res.cloudinary.com/l9vkavcj/image/upload/v1786199460/HH_h8zjvg.jpg";
+  const bgImage = "/media/wedding/l9vkavcj-HH_h8zjvg-1914fceab0.jpg";
 
   return (
     <section id="rsvp" className="bg-theme-bg min-h-screen flex flex-col items-center justify-center py-24 md:py-32 px-4 sm:px-6 relative overflow-hidden">

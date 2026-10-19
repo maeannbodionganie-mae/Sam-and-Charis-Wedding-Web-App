@@ -11,7 +11,7 @@ export default function Footer() {
       {/* Background Image */}
       <div 
          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35" 
-         style={{ backgroundImage: 'url("https://res.cloudinary.com/l9vkavcj/image/upload/v1786199461/IMG_9207_2_qqbpdi.jpg")' }}
+         style={{ backgroundImage: 'url("/media/wedding/l9vkavcj-IMG_9207_2_qqbpdi-e11ec5ba76.jpg")' }}
       />
       <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply" />
       <div className="absolute inset-0 bg-theme-bg/40" />
@@ -21,7 +21,7 @@ export default function Footer() {
          {/* Monogram */}
          <div className="mb-6 flex justify-center">
             <img 
-               src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png" 
+               src="/media/wedding/l9vkavcj-Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq-a0f603f94f.png" 
                alt="Sam & Charis Logo" 
                className="h-36 w-auto object-contain drop-shadow-md"
             />

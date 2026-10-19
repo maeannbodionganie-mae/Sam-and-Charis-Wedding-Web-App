@@ -61,18 +61,26 @@ export default function Hero({ onOpenRSVP }: HeroProps) {
   return (
     <section id="home" className="relative min-h-[100dvh] w-full flex items-center justify-center bg-theme-bg text-theme-accent pt-24 pb-12 md:pb-16 overflow-hidden">
       
-      {/* Background Video */}
+      {/* Locally hosted hero video, with poster fallback for slow connections/autoplay restrictions. */}
       <div className="absolute inset-0 z-0 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full bg-cover bg-center scale-[1.15]"
+          style={{ backgroundImage: 'url(/media/wedding/hero-poster.jpg)' }}
+        />
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
+          poster="/media/wedding/hero-poster.jpg"
+          aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover scale-[1.15]"
         >
-          <source src="https://res.cloudinary.com/zewou7fh/video/upload/v1787752695/BG_1.mp4" type="video/mp4" />
+          <source src="/media/wedding/hero-bg.mp4" type="video/mp4" />
         </video>
-      
+
         {/* Overlay to ensure text readability against the video */}
         <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-theme-bg/40"></div>

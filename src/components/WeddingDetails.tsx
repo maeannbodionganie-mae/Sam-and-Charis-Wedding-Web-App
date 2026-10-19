@@ -5,7 +5,7 @@ import { weddingData } from '../data/weddingData';
 export default function WeddingDetails() {
   const [copied, setCopied] = useState(false);
   
-  const bgImage = "https://res.cloudinary.com/l9vkavcj/image/upload/v1786199681/Savanna_ttr7ax.png";
+  const bgImage = "/media/wedding/l9vkavcj-Savanna_ttr7ax-273820c341.png";
 
   const generateGoogleCalendarLink = () => {
     const text = encodeURIComponent("Sam & Charis Wedding");

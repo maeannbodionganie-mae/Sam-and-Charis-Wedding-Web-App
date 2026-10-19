@@ -54,7 +54,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786199440/Guest_pd2hef.png" 
+            src="/media/wedding/l9vkavcj-Guest_pd2hef-0efe17c128.png" 
             alt="Guests Attire"
             className="h-64 sm:h-96 md:h-[500px] w-full object-contain drop-shadow-xl"
           />
@@ -85,7 +85,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786205622/Principal_Sponsor_ul6ljh.png" 
+            src="/media/wedding/l9vkavcj-Principal_Sponsor_ul6ljh-4ef26ef9eb.png" 
             alt="Principal Sponsors Attire"
             className="h-64 sm:h-96 md:h-[500px] w-full object-contain drop-shadow-xl"
           />
@@ -116,7 +116,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786199086/Secondary_Sponsor_rw8tbq.png" 
+            src="/media/wedding/l9vkavcj-Secondary_Sponsor_rw8tbq-74e191d632.png" 
             alt="Secondary Sponsors Attire"
             className="h-72 sm:h-96 md:h-[600px] w-full object-contain drop-shadow-xl"
           />
@@ -147,7 +147,7 @@ export default function AttireGuide() {
           </div>
 
           <img 
-            src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786199070/Team_Groom_Bride_ztzgvx.png" 
+            src="/media/wedding/l9vkavcj-Team_Groom_Bride_ztzgvx-8c613ededb.png" 
             alt="Team Groom and Team Bride Attire"
             className="h-72 sm:h-96 md:h-[600px] w-full object-contain drop-shadow-xl"
           />

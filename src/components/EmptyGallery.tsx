@@ -9,7 +9,7 @@ export default function EmptyGallery() {
       {/* Blurred Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 scale-110 filter blur-xl" 
-        style={{ backgroundImage: `url(${images[0].url})` }}
+        style={{ backgroundImage: `url(${images[0]?.url ?? ''})` }}
       />
       <div className="absolute inset-0 bg-theme-bg/60 mix-blend-multiply" />
       <div className="absolute inset-0 bg-theme-bg/60" />
@@ -37,7 +37,7 @@ export default function EmptyGallery() {
            <div className="flex items-center w-full max-w-md">
              <div className="flex-1 h-px bg-gradient-to-r from-transparent via-theme-accent/25 to-theme-accent/50" />
              <img
-               src="https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png"
+               src="/media/wedding/l9vkavcj-Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq-a0f603f94f.png"
                alt="Sam and Charis ornament"
                className="mx-4 w-14 h-14 md:w-16 md:h-16 object-contain opacity-60 shrink-0"
              />

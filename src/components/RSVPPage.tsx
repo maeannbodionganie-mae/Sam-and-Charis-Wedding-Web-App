@@ -22,8 +22,8 @@ const getStepNumber = (step: Step) => {
   }
 };
 
-const WEDDING_LOGO = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786200265/Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq.png';
-const CONFIRMATION_BG = 'https://res.cloudinary.com/l9vkavcj/image/upload/v1786199461/IMG_9207_2_qqbpdi.jpg';
+const WEDDING_LOGO = '/media/wedding/l9vkavcj-Cha_and_Sam_Wed_Logo_07172026_Yellow_1_vx5jlq-a0f603f94f.png';
+const CONFIRMATION_BG = '/media/wedding/l9vkavcj-IMG_9207_2_qqbpdi-e11ec5ba76.jpg';
 
 export default function RSVPPage({ isOpen, onClose }: RSVPPageProps) {
   const [currentStep, setCurrentStep] = useState<Step>('FIND');
