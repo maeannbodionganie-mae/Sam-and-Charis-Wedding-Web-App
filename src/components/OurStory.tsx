@@ -63,6 +63,8 @@ export default function OurStory() {
                          viewport={{ once: true, margin: "-50px" }}
                          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                          src={(item as any).image} 
+                         loading="lazy"
+                         decoding="async" 
                          alt={item.title} 
                          className="w-full h-auto object-contain shadow-2xl shadow-black/20"
                        />
