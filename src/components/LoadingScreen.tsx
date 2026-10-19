@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { weddingData } from '../data/weddingData';
 
 export default function LoadingScreen({ onComplete }: { onComplete: () => void }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 2500);
+    }, 900);
     return () => clearTimeout(timer);
   }, [onComplete]);
 
   return (
-    <AnimatePresence>
       <motion.div
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -45,6 +44,5 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
           </p>
         </motion.div>
       </motion.div>
-    </AnimatePresence>
   );
 }
