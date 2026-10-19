@@ -23,6 +23,7 @@ export default function EmptyGallery() {
       <div className="w-full relative z-10 mt-4">
          <div className="relative overflow-hidden w-full" style={{ paddingBottom: '56.25%' }}>
            <iframe
+             loading="lazy"
              src="https://www.youtube.com/embed/2nJ7pdNnVQc?si=3PQohOnpFlxoWPWo"
              title="Sam and Charis engagement video"
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -47,6 +48,7 @@ export default function EmptyGallery() {
 
          <div className="relative overflow-hidden w-full" style={{ paddingBottom: '56.25%' }}>
            <iframe
+             loading="lazy"
              src="https://www.youtube.com/embed/ws4pdq9d6SM"
              title="Sam and Charis wedding video"
              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
